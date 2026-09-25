@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dump Hero | Dump Trailer Rental, Junk Removal &amp; Material Delivery in Houston</title>
+<meta name="description" content="Veteran owned and operated. Dump trailer rental, junk removal and delivery of fill dirt, topsoil, crushed concrete, gravel and sand in Houston and surrounding areas. Open 24/7. Call or text 281-425-5240.">
+<meta property="og:title" content="Dump Hero | Houston Dump Trailer Rental &amp; Material Delivery">
+<meta property="og:description" content="Veteran owned and operated. We drop it, you fill it, we haul it. Open 24/7. Call or text 281-425-5240.">
+<meta property="og:image" content="images/trailer-hitched.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F3F0EA; --sand:#E7E2D8; --line:#DDD7CC; --ink:#1B1A17; --muted:#57534E;
+  --soft:#D6D1C7; --accent:#C2410C; --accent-dark:#9A3412; --accent-light:#FB923C;
+  --display:'Big Shoulders Display', Impact, 'Arial Narrow', sans-serif;
+  --body:'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  --pad:clamp(20px, 5.5vw, 80px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-light);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;margin:0;line-height:1}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.icon{flex:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:10;background:var(--ink);color:var(--ground);padding-top:env(safe-area-inset-top,0px)}
+.site-header .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ground);text-decoration:none}
+.brand span{white-space:nowrap;font-family:var(--display);font-weight:900;font-size:clamp(26px,3vw,34px);letter-spacing:1px;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:32px;font-weight:500;font-size:16px}
+.nav a.link{color:var(--ground);text-decoration:none}
+.nav a.link:hover{color:var(--accent-light)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:6px;font-weight:600;text-decoration:none;font-size:17px;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-dark);color:#fff}
+.btn-ghost{border-color:var(--ground);color:var(--ground)}
+.btn-ghost:hover{background:var(--ground);color:var(--ink)}
+.call-short{display:none}
+@media (max-width:980px){.nav a.link{display:none}.call-long{display:none}.call-short{display:inline}.nav .btn{min-height:44px;padding:8px 16px;font-size:15px}}
+
+/* menu */
+.header-left{display:flex;align-items:center;gap:14px}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:2px solid #44403C;border-radius:6px;background:transparent;color:var(--ground);cursor:pointer}
+.menu-btn:hover{border-color:var(--accent-light)}
+.menu-btn .bars{display:flex;flex-direction:column;gap:5px}
+.menu-btn .bars span{display:block;width:22px;height:2.5px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.menu-panel{position:absolute;top:100%;left:var(--pad);width:min(360px,calc(100vw - 40px));max-height:calc(100vh - 100px);overflow-y:auto;background:#fff;color:var(--ink);border-radius:0 0 10px 10px;border:1px solid var(--line);border-top:4px solid var(--accent);box-shadow:0 18px 40px rgba(27,26,23,.28);padding:10px 0 16px}
+.menu-panel[hidden]{display:none}
+.menu-panel .group{padding:10px 24px}
+.menu-panel .group + .group{border-top:1px solid var(--sand)}
+.menu-panel .group-title{font-size:13px;font-weight:600;color:var(--muted);margin:4px 0 8px}
+.menu-panel .primary{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:6px;background:var(--accent);color:#fff;font-weight:600;font-size:17px;text-decoration:none;margin:6px 0 4px}
+.menu-panel .primary:hover{background:var(--accent-dark);color:#fff}
+.menu-panel .contact-line{display:flex;align-items:center;gap:12px;min-height:44px;color:var(--ink);text-decoration:none;font-size:16px}
+.menu-panel a.contact-line:hover{color:var(--accent)}
+.menu-panel .contact-line strong{font-weight:600}
+.menu-panel .more a{display:flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none;font-size:17px;font-weight:500}
+.menu-panel .more a:hover{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.menu-btn .bars span{transition:none}}
+@media (max-width:980px){.menu-panel{left:12px}}
+@media (max-width:380px){.brand span{font-size:22px !important}.nav .btn{padding:8px 10px !important}}
+@media (max-width:480px){.site-header .wrap{gap:10px}.header-left{gap:10px}.brand svg{display:none}.brand span{font-size:26px}.nav .btn{padding:8px 12px}.menu-btn{width:44px;height:44px}}
+
+/* hero */
+.hero{background:var(--ink);color:var(--ground)}
+.hero .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;align-items:center;padding-top:88px;padding-bottom:104px}
+.hero-copy{display:flex;flex-direction:column;gap:24px}
+.badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:10px 18px;border:2px solid var(--accent-light);border-radius:999px;font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.kicker{font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent-light)}
+.hero h1{font-weight:900;font-size:clamp(58px,7.2vw,104px);line-height:.92}
+.hero p{margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:var(--soft);max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;padding-top:6px}
+.hero-actions .btn{min-height:56px;padding:16px 28px;font-size:18px}
+.hero-photo{width:100%;height:600px;object-fit:cover;object-position:50% 55%;border-radius:10px}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:40px;padding-bottom:48px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .hero-photo{height:320px}
+  .badge,.kicker{font-size:13px;letter-spacing:1.5px}
+}
+
+/* section basics */
+section{padding-top:clamp(56px,7.5vw,112px);padding-bottom:clamp(56px,7.5vw,112px)}
+.eyebrow{font-size:15px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.section-title{font-weight:800;font-size:clamp(44px,5vw,72px)}
+.muted{color:var(--muted)}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:44px}
+.card{display:flex;flex-direction:column;gap:18px;padding:40px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.card h3{font-weight:800;font-size:clamp(32px,2.8vw,38px)}
+.card p{margin:0;font-size:18px;line-height:1.6;color:var(--muted)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:17px}
+.checks li{display:flex;gap:12px;align-items:center}
+.quote-link{margin-top:auto;padding-top:14px;border-top:1px solid var(--sand);font-family:var(--display);font-weight:800;font-size:clamp(28px,2.5vw,36px);text-transform:uppercase;color:var(--ink);text-decoration:none}
+.quote-link:hover{color:var(--accent)}
+@media (max-width:1000px){.cards{grid-template-columns:1fr}.card{padding:28px 24px}}
+
+/* gallery */
+.gallery{padding-top:0}
+.photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:40px}
+.photos figure{margin:0;display:flex;flex-direction:column;gap:14px}
+.photos img{width:100%;height:480px;object-fit:cover;border-radius:10px}
+.photos figcaption{font-size:18px;font-weight:600}
+@media (max-width:900px){.photos{grid-template-columns:1fr;gap:24px}.photos img{height:300px}}
+
+/* how */
+.how{background:var(--sand)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin:48px 0 0;padding:0;list-style:none}
+.steps li{display:flex;flex-direction:column;gap:12px}
+.step-num{font-family:var(--display);font-weight:900;font-size:clamp(56px,6vw,88px);line-height:1;color:var(--accent)}
+.steps h3{font-family:var(--body);text-transform:none;font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.2}
+.steps p{margin:0;font-size:18px;line-height:1.6;color:var(--muted)}
+@media (max-width:900px){.steps{grid-template-columns:1fr;gap:28px;margin-top:28px}}
+
+/* materials */
+.two-up{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.panel{display:flex;flex-direction:column;gap:24px;padding:48px;border-radius:10px}
+.panel-dark{background:var(--ink);color:var(--ground)}
+.panel-light{background:#fff;border:1px solid var(--line)}
+.panel h2{font-weight:800;font-size:clamp(36px,3.6vw,52px)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
+.tiles li{padding:18px 20px;border:1px solid #44403C;border-radius:8px;font-size:19px;font-weight:600}
+.tiles li.wide{grid-column:span 2}
+.panel-dark p{margin:0;color:var(--soft);font-size:16px;line-height:1.6}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.rules ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:17px}
+.rules .yes{font-weight:600;font-size:18px;color:#166534}
+.rules .no{font-weight:600;font-size:18px;color:var(--accent-dark)}
+.panel-light p{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:900px){.two-up{grid-template-columns:1fr;gap:20px}.panel{padding:28px 24px}.tiles li{font-size:16px;padding:14px}.rules{grid-template-columns:1fr;gap:20px}}
+
+/* quote */
+.quote{background:var(--accent);color:#fff}
+.quote .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px}
+.quote-copy{display:flex;flex-direction:column;gap:20px}
+.quote h2{font-weight:900;font-size:clamp(52px,6vw,88px);line-height:.95}
+.quote-copy p{margin:0;font-size:20px;line-height:1.6}
+.big-phone{font-family:var(--display);font-weight:900;font-size:clamp(44px,4vw,56px);color:#fff;text-decoration:none;line-height:1}
+.big-phone:hover{color:var(--ink)}
+.quote-copy .small{font-size:18px}
+form{display:flex;flex-direction:column;gap:18px;padding:40px;background:#fff;color:var(--ink);border-radius:10px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.field .label{font-size:15px;font-weight:600}
+input,select,textarea{height:48px;padding:0 14px;border:1px solid #A8A29E;border-radius:6px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink);width:100%}
+textarea{height:auto;padding:12px 14px;resize:vertical}
+.photo-note{display:flex;align-items:center;gap:16px;padding:16px 20px;border:2px dashed #A8A29E;border-radius:8px;background:var(--ground)}
+.photo-note strong{display:block;font-size:16px}
+.photo-note span{font-size:14px;color:var(--muted)}
+.submit{height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:18px;font-weight:600;font-family:inherit;cursor:pointer}
+.submit:hover{background:#000}
+.form-msg{display:none;padding:14px 16px;border-radius:6px;background:var(--ground);font-size:16px;line-height:1.5}
+.form-msg.show{display:block}
+.form-msg.error{background:#FEE2E2;color:#7F1D1D}
+@media (max-width:900px){.quote .wrap{grid-template-columns:1fr;gap:28px}form{padding:24px 20px}.row{grid-template-columns:1fr}}
+
+/* team */
+.team-head{display:flex;flex-direction:column;gap:0}
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:44px}
+.member{display:flex;flex-direction:column;gap:12px}
+.member .photo{height:420px;border-radius:10px;border:2px dashed #A8A29E;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--muted)}
+.member h3{font-weight:800;font-size:36px}
+.member .role{font-size:17px;font-weight:600;color:var(--accent)}
+@media (max-width:900px){.team-grid{grid-template-columns:1fr;gap:28px}.member .photo{height:300px}}
+
+/* footer */
+footer{background:var(--ink);color:var(--soft);font-size:16px;padding-bottom:env(safe-area-inset-bottom,0px)}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-top:56px;padding-bottom:56px}
+footer .name{font-family:var(--display);font-weight:900;font-size:32px;text-transform:uppercase;color:var(--ground)}
+footer .col{display:flex;flex-direction:column;gap:10px}
+footer .right{align-items:flex-end;text-align:right}
+footer a{color:var(--ground);font-weight:600;text-decoration:none}
+@media (max-width:760px){footer .wrap{flex-direction:column;padding-top:40px;padding-bottom:40px}footer .right{align-items:flex-start;text-align:left}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<div class="header-left">
+<button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+<a class="brand" href="#top" aria-label="Dump Hero home">
+<svg class="icon" width="38" height="38" viewBox="0 0 40 40" fill="none" stroke="#FB923C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h22l-3 14H9z"/><path d="M28 16h5l3 5v5h-8"/><circle cx="12" cy="31" r="3"/><circle cx="30" cy="31" r="3"/></svg>
+<span>Dump Hero</span>
+</a>
+</div>
+<div class="menu-panel" id="menu-panel" hidden>
+<div class="group">
+<a class="primary" href="#quote">Request a quote</a>
+</div>
+<div class="group">
+<div class="group-title">Contact info</div>
+<a class="contact-line" href="tel:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call <strong>281-425-5240</strong></span></a>
+<a class="contact-line" href="sms:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Text <strong>281-425-5240</strong></span></a>
+<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Open 24/7</span></div>
+<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Houston and surrounding areas</span></div>
+</div>
+<div class="group more">
+<div class="group-title">More</div>
+<a href="#services">Services</a>
+<a href="#trailer">Meet the trailer</a>
+<a href="#how">How it works</a>
+<a href="#materials">Materials we deliver</a>
+<a href="#team">Meet the team</a>
+</div>
+</div>
+<nav class="nav" aria-label="Main">
+<a class="link" href="#services">Services</a>
+<a class="link" href="#how">How it works</a>
+<a class="link" href="#team">Meet the team</a>
+<a class="link" href="#materials">Materials</a>
+<a class="link" href="#quote">Get a quote</a>
+<a class="btn btn-accent" href="tel:+12814255240">
+<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+<span class="call-long">Call 281-425-5240</span><span class="call-short">Call now</span>
+</a>
+</nav>
+</div>
+</header>
+
+<main>
+<div class="hero" id="top">
+<div class="wrap">
+<div class="hero-copy">
+<div class="badge">
+<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6.3 6.9 1-5 4.8 1.2 6.9L12 17.8 5.9 21l1.2-6.9-5-4.8 6.9-1z"/></svg>
+Veteran owned &amp; operated
+</div>
+<div class="kicker">Dump trailer rental · Junk removal · Material delivery</div>
+<h1>We drop it.<br>You fill it.<br>We haul it.</h1>
+<p>A dump trailer staged right where you need it for cleanouts, remodels and yard work. Load it yourself or let our crew do the lifting. Need material instead? We deliver dirt, crushed concrete and gravel for your next project. Serving Houston and surrounding areas, 24/7.</p>
+<div class="hero-actions">
+<a class="btn btn-accent" href="#quote">Book a dump trailer</a>
+<a class="btn btn-ghost" href="#materials">Order materials</a>
+</div>
+</div>
+<img class="hero-photo" src="images/trailer-hitched.jpg" alt="Dump Hero's black dump trailer hitched to a pickup truck" width="1200" height="1600">
+</div>
+</div>
+
+<section id="services">
+<div class="wrap">
+<div class="eyebrow">What we do</div>
+<h2 class="section-title">One trailer. Three ways to help.</h2>
+<div class="cards">
+<article class="card">
+<svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M5 6l1 14h12l1-14"/><path d="M10 11v5M14 11v5"/></svg>
+<h3>Load at your own pace</h3>
+<p>We stage the trailer at your home or job site. You fill it on your schedule, then we haul it off and dispose of it properly.</p>
+<ul class="checks">
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Home cleanouts and moves</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Remodel and construction debris</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Yard waste, roofing and storm cleanup</li>
+</ul>
+<a class="quote-link" href="tel:+12814255240">Call or text for quote</a>
+</article>
+<article class="card">
+<svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V6a2 2 0 0 1 4 0v5"/><path d="M11 10V4a2 2 0 0 1 4 0v6"/><path d="M15 10V6a2 2 0 0 1 4 0v8a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L3 14a2 2 0 0 1 3.4-2L7 13"/></svg>
+<h3>We load it for you</h3>
+<p>Don't want to lift a thing? Our crew comes out, loads your trash and debris into the trailer, and hauls it all away.</p>
+<ul class="checks">
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Junk and furniture removal</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Garage, attic and estate cleanouts</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Job site and debris pickup</li>
+</ul>
+<a class="quote-link" href="tel:+12814255240">Call or text for quote</a>
+</article>
+<article class="card">
+<svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20l5-9 4 5 3-4 4 8"/><circle cx="17" cy="6" r="2"/></svg>
+<h3>Material delivery</h3>
+<p>Need fill or base material? We load the trailer and deliver dirt, crushed concrete, gravel and more right to your site.</p>
+<ul class="checks">
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Driveways, pads and walkways</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Leveling, grading and fill</li>
+<li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Landscaping and drainage projects</li>
+</ul>
+<a class="quote-link" href="tel:+12814255240">Call or text for quote</a>
+</article>
+</div>
+</div>
+</section>
+
+<section class="gallery" id="trailer">
+<div class="wrap">
+<h2 class="section-title">Meet the trailer</h2>
+<div class="photos">
+<figure><img src="images/trailer-hitched.jpg" alt="Dump trailer hitched and ready to roll" loading="lazy" style="object-position:55% 55%"><figcaption>Hitched and ready to roll</figcaption></figure>
+<figure><img src="images/trailer-dumping.jpg" alt="Dump trailer bed raised to unload" loading="lazy"><figcaption>Dumps right where you need it</figcaption></figure>
+<figure><img src="images/trailer-ramps.jpg" alt="Dump trailer with rear gate open and loading ramps down" loading="lazy" style="object-position:50% 60%"><figcaption>Ramps down for easy loading</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="how" id="how">
+<div class="wrap">
+<h2 class="section-title">How it works</h2>
+<ol class="steps">
+<li><span class="step-num" aria-hidden="true">01</span><h3>Book your date</h3><p>Call, text or send the quote form. Tell us whether you need a trailer to fill or a load of material.</p></li>
+<li><span class="step-num" aria-hidden="true">02</span><h3>We stage or deliver</h3><p>We back the trailer into your driveway or job site, load it up for you if you'd like, or dump your material exactly where you want it.</p></li>
+<li><span class="step-num" aria-hidden="true">03</span><h3>We haul it away</h3><p>When you're done loading, give us a call. We pick up the trailer and take care of disposal.</p></li>
+</ol>
+</div>
+</section>
+
+<section id="materials">
+<div class="wrap two-up">
+<div class="panel panel-dark">
+<h2>Materials we deliver</h2>
+<ul class="tiles">
+<li>Fill dirt</li><li>Topsoil</li><li>Crushed Concrete (Washout)</li><li>Gravel</li><li class="wide">Sand</li>
+</ul>
+<p>Not sure how much you need? Send us your project size and we'll help you figure it out.</p>
+</div>
+<div class="panel panel-light">
+<h2>What can go in</h2>
+<div class="rules">
+<ul><li class="yes">Yes, load it</li><li>Furniture and household junk</li><li>Drywall, wood and flooring</li><li>Shingles and roofing</li><li>Yard waste and branches</li></ul>
+<ul><li class="no">Please keep out</li><li>Paint, oil and chemicals</li><li>Tires and batteries</li><li>Appliances with refrigerant</li></ul>
+</div>
+<p>Weight limit: 10,000 lbs per load.</p>
+</div>
+</div>
+</section>
+
+<section class="quote" id="quote">
+<div class="wrap">
+<div class="quote-copy">
+<h2>Get your free quote</h2>
+<p>Tell us what you need and when. We'll get back to you with a price and a drop-off time.</p>
+<a class="big-phone" href="tel:+12814255240">281-425-5240</a>
+<div style="font-size:20px;font-weight:600">Call or text anytime</div>
+<div class="small">Open 24/7 · Houston and surrounding areas</div>
+</div>
+<form id="quote-form" novalidate>
+<div class="row">
+<div class="field"><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name" required></div>
+<div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
+</div>
+<div class="field"><label for="q-service">What do you need?</label>
+<select id="q-service" name="service"><option>Dump trailer — I'll load it myself</option><option>Junk removal — your crew loads it</option><option>Material delivery</option></select></div>
+<div class="row">
+<div class="field"><label for="q-address">Drop-off address</label><input id="q-address" name="address" type="text" autocomplete="street-address"></div>
+<div class="field"><label for="q-date">Preferred date</label><input id="q-date" name="date" type="date"></div>
+</div>
+<div class="field"><label for="q-notes">Project details</label><textarea id="q-notes" name="notes" rows="4"></textarea></div>
+<div class="field">
+<span class="label">Photos (optional)</span>
+<div class="photo-note">
+<svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
+<div><strong>Add photos of your junk or job site</strong><span>Your request opens as a text message to us. Attach photos right in the text before you send.</span></div>
+</div>
+</div>
+<button class="submit" type="submit">Request my quote</button>
+<div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+</form>
+</div>
+</section>
+
+<section id="team">
+<div class="wrap">
+<div class="eyebrow">Veteran owned &amp; operated</div>
+<h2 class="section-title">Meet the team</h2>
+<div class="team-grid">
+<article class="member"><div class="photo">Isai</div><h3>Isai</h3><div class="role">Owner</div></article>
+<article class="member"><div class="photo">David</div><h3>David</h3><div class="role">Transportation Specialist</div></article>
+<article class="member"><div class="photo">Nico</div><h3>Nico</h3><div class="role">Transportation Specialist</div></article>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="col">
+<span class="name">Dump Hero</span>
+<span>Veteran owned &amp; operated · Dump trailer rental, junk removal and material delivery in Houston and surrounding areas</span>
+</div>
+<div class="col right">
+<a href="tel:+12814255240">281-425-5240 · Open 24/7</a>
+<span>© 2026 Dump Hero</span>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('quote-form');
+  var msg = document.getElementById('form-msg');
+  var PHONE = '+12814255240';
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim(), phone = form.phone.value.trim();
+    if(!name || !phone){
+      msg.className = 'form-msg show error';
+      msg.textContent = 'Please enter your name and phone number so we can reach you.';
+      (name ? form.phone : form.name).focus();
+      return;
+    }
+    var lines = [
+      'Quote request from the Dump Hero website',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Service: ' + form.service.value
+    ];
+    if(form.address.value.trim()) lines.push('Address: ' + form.address.value.trim());
+    if(form.date.value) lines.push('Preferred date: ' + form.date.value);
+    if(form.notes.value.trim()) lines.push('Details: ' + form.notes.value.trim());
+    var body = encodeURIComponent(lines.join('\n'));
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    msg.className = 'form-msg show';
+    if(isMobile){
+      msg.textContent = 'Your text message is ready. Attach any photos, then hit send.';
+      window.location.href = 'sms:' + PHONE + '?&body=' + body;
+    } else {
+      msg.innerHTML = 'On a computer? Text these details and any photos to <a href="tel:' + PHONE + '"><strong>281-425-5240</strong></a>, or give us a call. We\u2019re open 24/7.';
+    }
+  });
+})();
+(function(){
+  var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');
+  function setOpen(open){
+    btn.setAttribute('aria-expanded', open ? 'true':'false');
+    btn.setAttribute('aria-label', open ? 'Close menu':'Open menu');
+    panel.hidden=!open;
+  }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); setOpen(panel.hidden); });
+  panel.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('click', function(e){ if(!panel.hidden && !panel.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !panel.hidden){ setOpen(false); btn.focus(); } });
+})();
+</script>
+</body>
+</html>
