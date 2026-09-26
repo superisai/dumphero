@@ -61,6 +61,7 @@ module.exports = async function handler(req, res) {
   const address = clean(body.address, 300);
   const date = clean(body.date, 40);
   const notes = clean(body.notes, 5000);
+  const isSpanish = clean(body.lang, 10).toLowerCase().startsWith('es');
 
   if (!name || !phone) {
     return res.status(400).json({ ok: false, error: 'Please include your name and phone number.' });
@@ -89,6 +90,7 @@ module.exports = async function handler(req, res) {
   }
 
   const rows = [
+    ...(isSpanish ? [['Language', 'Spanish (used the Spanish form, reply in Spanish)']] : []),
     ['Name', name],
     ['Phone', phone],
     ['Email', email || 'Not provided'],
@@ -99,7 +101,7 @@ module.exports = async function handler(req, res) {
     ['Photos', attachments.length ? `${attachments.length} attached` : 'None'],
   ];
 
-  const text = ['New quote request from the Dump Hero website', '']
+  const text = ['New quote request from the Dump Hero website' + (isSpanish ? ' (Spanish form, reply in Spanish)' : ''), '']
     .concat(rows.map(([k, v]) => `${k}: ${v}`))
     .join('\n');
 
@@ -107,7 +109,7 @@ module.exports = async function handler(req, res) {
   const html = `
 <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;color:#1B1A17">
   <h2 style="margin:0 0 4px;color:#C2410C">New quote request</h2>
-  <p style="margin:0 0 16px;color:#57534E">Sent from the Dump Hero website</p>
+  <p style="margin:0 0 16px;color:#57534E">Sent from the Dump Hero website${isSpanish ? ' &middot; <strong style="color:#C2410C">Spanish form, reply in Spanish</strong>' : ''}</p>
   <table style="border-collapse:collapse;width:100%;font-size:15px">
     ${rows.map(([k, v]) => `<tr><td style="padding:8px 12px 8px 0;border-bottom:1px solid #E7E2D8;font-weight:bold;vertical-align:top;white-space:nowrap">${escapeHtml(k)}</td><td style="padding:8px 0;border-bottom:1px solid #E7E2D8;white-space:pre-wrap">${escapeHtml(v)}</td></tr>`).join('')}
   </table>
@@ -120,7 +122,7 @@ module.exports = async function handler(req, res) {
   const payload = {
     from: fromEmail,
     to: [toEmail],
-    subject: `New quote request: ${service || 'Dump Hero'} from ${name}`,
+    subject: `${isSpanish ? '[Español] ' : ''}New quote request: ${service || 'Dump Hero'} from ${name}`,
     text,
     html,
   };
