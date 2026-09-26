@@ -158,9 +158,24 @@ form{display:flex;flex-direction:column;gap:18px;padding:40px;background:#fff;co
 .field label,.field .label{font-size:15px;font-weight:600}
 input,select,textarea{height:48px;padding:0 14px;border:1px solid #A8A29E;border-radius:6px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink);width:100%}
 textarea{height:auto;padding:12px 14px;resize:vertical}
-.photo-note{display:flex;align-items:center;gap:16px;padding:16px 20px;border:2px dashed #A8A29E;border-radius:8px;background:var(--ground)}
-.photo-note strong{display:block;font-size:16px}
-.photo-note span{font-size:14px;color:var(--muted)}
+.photo-drop{display:flex;align-items:center;gap:16px;padding:16px 20px;border:2px dashed #A8A29E;border-radius:8px;background:var(--ground);cursor:pointer}
+.photo-drop:hover,.photo-drop:focus-within{border-color:var(--accent)}
+.photo-drop strong{display:block;font-size:16px}
+.photo-drop span{font-size:14px;color:var(--muted)}
+.photo-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.thumbs:empty{display:none}
+.thumb{position:relative;width:76px;height:76px;border-radius:6px;overflow:hidden;background:var(--sand)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb button{position:absolute;top:4px;right:4px;width:26px;height:26px;border:none;border-radius:50%;background:rgba(27,26,23,.85);color:#fff;font-size:16px;line-height:1;cursor:pointer}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit[disabled]{opacity:.7;cursor:wait}
+.thanks{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:40px;background:#fff;color:var(--ink);border-radius:10px}
+.thanks[hidden],form[hidden]{display:none}
+.thanks h3{font-weight:900;font-size:clamp(40px,4vw,56px);color:var(--accent)}
+.thanks p{margin:0;font-size:18px;line-height:1.6;color:var(--muted)}
+.thanks .again{background:none;border:none;padding:0;color:var(--accent);font:inherit;font-weight:600;text-decoration:underline;cursor:pointer}
+@media (max-width:900px){.thanks{padding:28px 20px}}
 .submit{height:56px;border:none;border-radius:6px;background:var(--ink);color:#fff;font-size:18px;font-weight:600;font-family:inherit;cursor:pointer}
 .submit:hover{background:#000}
 .form-msg{display:none;padding:14px 16px;border-radius:6px;background:var(--ground);font-size:16px;line-height:1.5}
@@ -345,11 +360,13 @@ Veteran owned &amp; operated
 <div style="font-size:20px;font-weight:600">Call or text anytime</div>
 <div class="small">Open 24/7 · Houston and surrounding areas</div>
 </div>
+<div>
 <form id="quote-form" novalidate>
 <div class="row">
 <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name" required></div>
 <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required></div>
 </div>
+<div class="field"><label for="q-email">Email (optional)</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
 <div class="field"><label for="q-service">What do you need?</label>
 <select id="q-service" name="service"><option>Dump trailer — I'll load it myself</option><option>Junk removal — your crew loads it</option><option>Material delivery</option></select></div>
 <div class="row">
@@ -358,15 +375,26 @@ Veteran owned &amp; operated
 </div>
 <div class="field"><label for="q-notes">Project details</label><textarea id="q-notes" name="notes" rows="4"></textarea></div>
 <div class="field">
-<span class="label">Photos (optional)</span>
-<div class="photo-note">
+<span class="label" id="photos-label">Photos (optional)</span>
+<label class="photo-drop" for="q-photos">
 <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg>
-<div><strong>Add photos of your junk or job site</strong><span>Your request opens as a text message to us. Attach photos right in the text before you send.</span></div>
+<div><strong>Add photos of your junk or job site</strong><span>Up to 5 photos. Helps us give you an accurate quote.</span></div>
+</label>
+<input class="photo-input" id="q-photos" type="file" accept="image/*" multiple aria-labelledby="photos-label">
+<div class="thumbs" id="thumbs"></div>
 </div>
-</div>
+<div class="hp" aria-hidden="true"><label for="q-company">Company</label><input id="q-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
 <button class="submit" type="submit">Request my quote</button>
-<div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+<div class="form-msg" id="form-msg" role="alert" aria-live="polite"></div>
 </form>
+<div class="thanks" id="thanks" hidden tabindex="-1">
+<svg class="icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+<h3>Thank you!</h3>
+<p id="thanks-text">We got your quote request and will get back to you soon.</p>
+<p>Need it faster? Call or text <a href="tel:+12814255240"><strong>281-425-5240</strong></a>. We're open 24/7.</p>
+<button class="again" type="button" id="again">Send another request</button>
+</div>
+</div>
 </div>
 </section>
 
@@ -400,34 +428,137 @@ Veteran owned &amp; operated
 (function(){
   var form = document.getElementById('quote-form');
   var msg = document.getElementById('form-msg');
-  var PHONE = '+12814255240';
+  var thanks = document.getElementById('thanks');
+  var thanksText = document.getElementById('thanks-text');
+  var input = document.getElementById('q-photos');
+  var thumbs = document.getElementById('thumbs');
+  var submitBtn = form.querySelector('.submit');
+  var MAX_PHOTOS = 5, MAX_TOTAL = 3.3 * 1024 * 1024;
+  var photos = []; // {name, type, data, url}
+
+  function showError(text){ msg.className = 'form-msg show error'; msg.textContent = text; }
+  function clearMsg(){ msg.className = 'form-msg'; msg.textContent = ''; }
+
+  function readAsDataURL(file){
+    return new Promise(function(resolve, reject){
+      var r = new FileReader();
+      r.onload = function(){ resolve(r.result); };
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
+  }
+
+  // Shrink photos in the browser so uploads are fast and fit in one email.
+  function shrink(file){
+    return new Promise(function(resolve){
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function(){
+        var max = 1600, w = img.naturalWidth, h = img.naturalHeight;
+        var scale = Math.min(1, max / Math.max(w, h));
+        var c = document.createElement('canvas');
+        c.width = Math.round(w * scale); c.height = Math.round(h * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        var data = c.toDataURL('image/jpeg', 0.75);
+        var base = (file.name || 'photo').replace(/\.[^.]+$/, '');
+        resolve({ name: base + '.jpg', type: 'image/jpeg', data: data, url: data });
+      };
+      img.onerror = function(){
+        URL.revokeObjectURL(url);
+        // Browser can't preview this format (e.g. HEIC on some computers); send the original if small enough.
+        if (file.size <= 2.5 * 1024 * 1024) {
+          readAsDataURL(file).then(function(data){
+            resolve({ name: file.name || 'photo', type: (file.type || 'image/heic').toLowerCase(), data: data, url: '' });
+          }, function(){ resolve(null); });
+        } else { resolve(null); }
+      };
+      img.src = url;
+    });
+  }
+
+  function totalSize(){
+    return photos.reduce(function(sum, p){ return sum + p.data.length * 0.75; }, 0);
+  }
+
+  function renderThumbs(){
+    thumbs.innerHTML = '';
+    photos.forEach(function(p, i){
+      var d = document.createElement('div'); d.className = 'thumb';
+      if (p.url) { var im = document.createElement('img'); im.src = p.url; im.alt = 'Selected photo ' + (i + 1); d.appendChild(im); }
+      else { d.style.display = 'flex'; d.style.alignItems = 'center'; d.style.justifyContent = 'center'; d.style.fontSize = '12px'; d.textContent = 'Photo ' + (i + 1); }
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Remove photo ' + (i + 1)); b.textContent = '\u00d7';
+      b.addEventListener('click', function(){ photos.splice(i, 1); renderThumbs(); });
+      d.appendChild(b); thumbs.appendChild(d);
+    });
+  }
+
+  input.addEventListener('change', function(){
+    clearMsg();
+    var files = Array.prototype.slice.call(input.files || []);
+    input.value = '';
+    var room = MAX_PHOTOS - photos.length;
+    if (files.length > room) { showError('You can add up to ' + MAX_PHOTOS + ' photos.'); files = files.slice(0, Math.max(room, 0)); }
+    Promise.all(files.map(shrink)).then(function(results){
+      var skipped = 0;
+      results.forEach(function(p){
+        if (!p) { skipped++; return; }
+        if (totalSize() + p.data.length * 0.75 > MAX_TOTAL) { skipped++; return; }
+        photos.push(p);
+      });
+      if (skipped) showError(skipped === 1 ? 'One photo couldn\u2019t be added. Try a JPG or PNG, or a smaller photo.' : skipped + ' photos couldn\u2019t be added. Try JPG or PNG files, or fewer photos.');
+      renderThumbs();
+    });
+  });
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var name = form.name.value.trim(), phone = form.phone.value.trim();
-    if(!name || !phone){
-      msg.className = 'form-msg show error';
-      msg.textContent = 'Please enter your name and phone number so we can reach you.';
+    clearMsg();
+    var name = form.name.value.trim(), phone = form.phone.value.trim(), email = form.email.value.trim();
+    if (!name || !phone) {
+      showError('Please enter your name and phone number so we can reach you.');
       (name ? form.phone : form.name).focus();
       return;
     }
-    var lines = [
-      'Quote request from the Dump Hero website',
-      'Name: ' + name,
-      'Phone: ' + phone,
-      'Service: ' + form.service.value
-    ];
-    if(form.address.value.trim()) lines.push('Address: ' + form.address.value.trim());
-    if(form.date.value) lines.push('Preferred date: ' + form.date.value);
-    if(form.notes.value.trim()) lines.push('Details: ' + form.notes.value.trim());
-    var body = encodeURIComponent(lines.join('\n'));
-    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    msg.className = 'form-msg show';
-    if(isMobile){
-      msg.textContent = 'Your text message is ready. Attach any photos, then hit send.';
-      window.location.href = 'sms:' + PHONE + '?&body=' + body;
-    } else {
-      msg.innerHTML = 'On a computer? Text these details and any photos to <a href="tel:' + PHONE + '"><strong>281-425-5240</strong></a>, or give us a call. We\u2019re open 24/7.';
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please check your email address.');
+      form.email.focus();
+      return;
     }
+    var payload = {
+      name: name, phone: phone, email: email,
+      service: form.service.value,
+      address: form.address.value.trim(),
+      date: form.date.value,
+      notes: form.notes.value.trim(),
+      company: form.company.value,
+      photos: photos.map(function(p){ return { name: p.name, type: p.type, data: p.data }; })
+    };
+    submitBtn.disabled = true;
+    submitBtn.textContent = photos.length ? 'Sending your request and photos\u2026' : 'Sending\u2026';
+    fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json().catch(function(){ return { ok: false }; }).then(function(j){ return { ok: r.ok && j.ok, error: j.error }; }); })
+      .then(function(result){
+        if (!result.ok) throw new Error(result.error || '');
+        thanksText.textContent = 'Thanks, ' + name.split(' ')[0] + '! We got your quote request and will reach out soon at ' + phone + '.';
+        form.hidden = true;
+        thanks.hidden = false;
+        thanks.focus();
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function(err){
+        showError((err && err.message ? err.message + ' ' : 'Something went wrong sending your request. ') + 'Please call or text us at 281-425-5240.');
+      })
+      .then(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request my quote';
+      });
+  });
+
+  document.getElementById('again').addEventListener('click', function(){
+    form.reset(); photos = []; renderThumbs(); clearMsg();
+    thanks.hidden = true; form.hidden = false;
+    form.name.focus();
   });
 })();
 (function(){
