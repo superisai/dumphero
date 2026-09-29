@@ -61,6 +61,8 @@ module.exports = async function handler(req, res) {
   const address = clean(body.address, 300);
   const date = clean(body.date, 40);
   const notes = clean(body.notes, 5000);
+  const material = clean(body.material, 120);
+  const yards = clean(body.yards, 60);
   const isSpanish = clean(body.lang, 10).toLowerCase().startsWith('es');
 
   if (!name || !phone) {
@@ -95,6 +97,7 @@ module.exports = async function handler(req, res) {
     ['Phone', phone],
     ['Email', email || 'Not provided'],
     ['Service', service || 'Not specified'],
+    ...(material || yards ? [['Material', material || 'Not specified'], ['Cubic yards', yards || 'Not specified']] : []),
     ['Drop-off address', address || 'Not provided'],
     ['Preferred date', date || 'Not provided'],
     ['Project details', notes || 'None'],
@@ -122,7 +125,7 @@ module.exports = async function handler(req, res) {
   const payload = {
     from: fromEmail,
     to: [toEmail],
-    subject: `${isSpanish ? '[Español] ' : ''}New quote request: ${service || 'Dump Hero'} from ${name}`,
+    subject: `${isSpanish ? '[Español] ' : ''}New quote request: ${service || 'Dump Hero'}${material ? ` (${material}${yards ? `, ${yards} yd` : ''})` : ''} from ${name}`,
     text,
     html,
   };
