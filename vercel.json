@@ -1,12 +1,28 @@
 {
   "rewrites": [
-    { "source": "/portal", "destination": "/api/portal-page" },
-    { "source": "/portal/", "destination": "/api/portal-page" }
+    {
+      "source": "/portal",
+      "destination": "/api/portal-page"
+    },
+    {
+      "source": "/portal/",
+      "destination": "/api/portal-page"
+    }
   ],
   "functions": {
-    "api/portal-feeds.js": { "maxDuration": 30 }
+    "api/portal-feeds.js": {
+      "maxDuration": 60
+    }
   },
   "headers": [
-    { "source": "/api/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
   ]
 }
