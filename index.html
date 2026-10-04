@@ -175,6 +175,12 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;margin:0;line-heigh
 .still .a{animation:none !important}
 .cards.v3 .checks li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:2px}
 .cards.v3 .checks{gap:8px;font-size:15px}
+.jobs-grid figure.ba{grid-column:span 2}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ba-pair div{position:relative}
+.ba-pair span{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:999px;background:rgba(27,26,23,.85);color:#fff;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.ba-pair div:last-child span{background:var(--accent)}
+@media (max-width:900px){.jobs-grid figure.ba{grid-column:auto}.ba-pair img{height:240px !important}}
 .contact-mail{color:#fff;font-weight:600;font-size:19px;text-decoration:underline;text-underline-offset:4px}
 
 /* route journey */
@@ -580,6 +586,8 @@ footer a{color:var(--ground);font-weight:600;text-decoration:none}
 <h2 class="section-title">Completed jobs</h2>
 <p class="jobs-intro">A few recent jobs around Houston.</p>
 <div class="jobs-grid">
+<figure class="ba"><div class="ba-pair"><div><img src="/images/job-shed-before.jpg" alt="Old metal shed before demolition" loading="lazy" style="object-position:50% 45%"><span>Before</span></div><div><img src="/images/job-shed-after.jpg" alt="Same backyard after the shed was demolished and cleared" loading="lazy" style="object-position:50% 55%"><span>After</span></div></div><figcaption>Shed demolition: before and after</figcaption></figure>
+<figure><img src="/images/job-light-junk.jpg" alt="Dump trailer loaded with light junk, wood and a tire" loading="lazy" style="object-position:50% 70%"><figcaption>Light junk pickup, loaded and hauled away</figcaption></figure>
 <figure><img src="/images/job-sand-delivery.jpg" alt="Sand delivery, dumped right where the customer wanted it" loading="lazy" style="object-position:50% 72%"><figcaption>Sand delivery, dumped right where the customer wanted it</figcaption></figure>
 <figure><img src="/images/job-dirt-delivery.jpg" alt="Dirt delivery at a job site" loading="lazy" style="object-position:50% 62%"><figcaption>Dirt delivery at a job site</figcaption></figure>
 <figure><img src="/images/job-driveway-dropoff.jpg" alt="Trailer staged in a customer’s driveway" loading="lazy" style="object-position:50% 55%"><figcaption>Trailer staged in a customer’s driveway</figcaption></figure>
