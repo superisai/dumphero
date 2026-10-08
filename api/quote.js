@@ -64,8 +64,10 @@ module.exports = async function handler(req, res) {
   const material = clean(body.material, 120);
   const yards = clean(body.yards, 60);
   const isSpanish = clean(body.lang, 10).toLowerCase().startsWith('es');
+  const quick = body.quick === true;
+  const zip = clean(body.zip, 10);
 
-  if (!name || !phone) {
+  if (!phone || (!name && !quick)) {
     return res.status(400).json({ ok: false, error: 'Please include your name and phone number.' });
   }
   if (email && !validEmail(email)) {
@@ -93,10 +95,12 @@ module.exports = async function handler(req, res) {
 
   const rows = [
     ...(isSpanish ? [['Language', 'Spanish (used the Spanish form, reply in Spanish)']] : []),
-    ['Name', name],
+    ...(quick ? [['Form', 'Quick quote (call or text them back for details)']] : []),
+    ['Name', name || 'Not provided'],
     ['Phone', phone],
     ['Email', email || 'Not provided'],
     ['Service', service || 'Not specified'],
+    ...(zip ? [['ZIP code', zip]] : []),
     ...(material || yards ? [['Material', material || 'Not specified'], ['Cubic yards', yards || 'Not specified']] : []),
     ['Drop-off address', address || 'Not provided'],
     ['Preferred date', date || 'Not provided'],
@@ -117,15 +121,15 @@ module.exports = async function handler(req, res) {
     ${rows.map(([k, v]) => `<tr><td style="padding:8px 12px 8px 0;border-bottom:1px solid #E7E2D8;font-weight:bold;vertical-align:top;white-space:nowrap">${escapeHtml(k)}</td><td style="padding:8px 0;border-bottom:1px solid #E7E2D8;white-space:pre-wrap">${escapeHtml(v)}</td></tr>`).join('')}
   </table>
   <p style="margin:20px 0 0">
-    <a href="tel:${escapeHtml(phoneDigits)}" style="display:inline-block;padding:10px 18px;background:#C2410C;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold">Call ${escapeHtml(name)}</a>
-    <a href="sms:${escapeHtml(phoneDigits)}" style="display:inline-block;padding:10px 18px;margin-left:8px;border:2px solid #C2410C;color:#C2410C;text-decoration:none;border-radius:6px;font-weight:bold">Text ${escapeHtml(name)}</a>
+    <a href="tel:${escapeHtml(phoneDigits)}" style="display:inline-block;padding:10px 18px;background:#C2410C;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold">Call ${escapeHtml(name || 'them')}</a>
+    <a href="sms:${escapeHtml(phoneDigits)}" style="display:inline-block;padding:10px 18px;margin-left:8px;border:2px solid #C2410C;color:#C2410C;text-decoration:none;border-radius:6px;font-weight:bold">Text ${escapeHtml(name || 'them')}</a>
   </p>
 </div>`;
 
   const payload = {
     from: fromEmail,
     to: [toEmail],
-    subject: `${isSpanish ? '[Español] ' : ''}New quote request: ${service || 'Dump Hero'}${material ? ` (${material}${yards ? `, ${yards} yd` : ''})` : ''} from ${name}`,
+    subject: `${isSpanish ? '[Español] ' : ''}${quick ? '[Quick quote] ' : ''}New quote request: ${service || 'Dump Hero'}${material ? ` (${material}${yards ? `, ${yards} yd` : ''})` : ''} from ${name || phone}`,
     text,
     html,
   };
