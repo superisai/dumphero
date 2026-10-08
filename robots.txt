@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /portal
+Disallow: /api/
+
+Sitemap: https://getdumphero.com/sitemap.xml

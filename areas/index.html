@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dump Hero | Conozca al Dueño</title>
-<meta name="description" content="Conozca a Isai Guevara, el dueño veterano de Dump Hero, sirviendo a Houston y áreas cercanas 24/7.">
-<meta property="og:title" content="Dump Hero | Conozca al Dueño">
-<meta property="og:description" content="Negocio de veteranos. Lo dejamos, lo llena, lo recogemos. Abierto 24/7. Llame o envíe mensaje al 281-425-5240.">
+<title>Service Areas | Dump Hero</title>
+<meta name="description" content="Dump Hero serves Houston and surrounding areas 24/7: Fresno, Missouri City, Sugar Land, Pearland, Rosenberg, Richmond, Katy and southwest Houston. Call or text 281-425-5240.">
+<link rel="canonical" href="https://getdumphero.com/areas/">
+<meta property="og:title" content="Service Areas | Dump Hero">
+<meta property="og:description" content="Dump Hero serves Houston and surrounding areas 24/7: Fresno, Missouri City, Sugar Land, Pearland, Rosenberg, Richmond, Katy and southwest Houston. Call or text 281-425-5240.">
 <meta property="og:image" content="/images/trailer-hitched.jpg">
 <link rel="alternate" hreflang="en" href="/team/">
 <link rel="alternate" hreflang="es" href="/es/team/">
@@ -43,7 +44,7 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;margin:0;line-heigh
 .nav a.link{color:var(--ground);text-decoration:none;white-space:nowrap}
 .nav .lang-switch{flex:none}
 @media (max-width:1320px){.nav{gap:22px}.nav a.link{font-size:15px}}
-@media (max-width:1380px){.nav a.link{display:none}}
+@media (max-width:1260px){.nav a.link{display:none}}
 .nav a.link:hover{color:var(--accent-light)}
 .btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:6px;font-weight:600;text-decoration:none;font-size:17px;border:2px solid transparent;cursor:pointer;font-family:inherit}
 .btn-accent{background:var(--accent);color:#fff}
@@ -281,253 +282,185 @@ footer .col{display:flex;flex-direction:column;gap:10px}
 footer .right{align-items:flex-end;text-align:right}
 footer a{color:var(--ground);font-weight:600;text-decoration:none}
 @media (max-width:760px){footer .wrap{flex-direction:column;padding-top:40px;padding-bottom:40px}footer .right{align-items:flex-start;text-align:left}}
+/* v5 lead upgrades */
+.quick{margin-top:4px;max-width:600px;background:#26231F;border:1px solid #3A3631;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.quick-title{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;color:#fff;line-height:1}
+.qrow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) auto;gap:8px}
+.qrow select{grid-column:1/-1}
+.qrow select,.qrow input{min-height:48px;width:100%;box-sizing:border-box;border-radius:6px;border:1px solid #57534E;background:#fff;color:var(--ink);padding:0 12px;font-size:16px;font-family:inherit}
+.quick-msg{font-size:15px;font-weight:600;color:#FED7AA}
+.quick-msg.ok{color:#BBF7D0}
+.quick-alt{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:#D6D1C7}
+.quick-alt a{color:#fff;font-weight:600;text-underline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){.qrow{grid-template-columns:1fr 1fr}.qrow select{grid-column:1/-1}.qrow button{grid-column:1/-1}}
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding-top:16px;padding-bottom:16px}
+.trust span{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px}
+.price{display:flex;align-items:baseline;gap:6px;margin:-4px 0 2px;font-size:15px;font-weight:600;color:var(--muted)}
+.price b{font-family:var(--display);font-weight:900;font-size:30px;line-height:1;color:var(--accent)}
+.price.free b{font-size:22px}
+.price-note{margin:18px 0 0;font-size:15px;color:var(--muted);max-width:820px}
+.faq{background:var(--ground)}
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;max-width:860px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:0 18px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;font-weight:700;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:26px;font-weight:400;color:var(--accent);flex-shrink:0}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 16px;font-size:16px;line-height:1.6;color:var(--muted)}
+.mbar{display:none}
+@media (max-width:760px){
+ .mbar{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 18px rgba(0,0,0,.25)}
+ .mbar a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:6px;font-weight:700;font-size:16px;text-decoration:none;color:#fff;border:2px solid #57534E}
+ .mbar a.q{background:var(--accent);border-color:var(--accent)}
+ body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+}
+
+.city-hero{background:var(--ink);color:var(--ground)}
+.city-hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
+.city-hero .copy{display:flex;flex-direction:column;gap:16px}
+.city-hero h1{font-weight:900;font-size:clamp(44px,5.6vw,80px);line-height:.95}
+.city-hero p.lead{margin:0;font-size:clamp(17px,1.4vw,20px);color:var(--soft);max-width:620px}
+.city-hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+.crumbs{font-size:14px;color:#A8A29E}.crumbs a{color:#D6D1C7}
+@media (max-width:900px){.city-hero .wrap{grid-template-columns:1fr;gap:28px}}
+.p3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.p3 .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.p3 h3{font-size:clamp(26px,2.4vw,32px)}
+.p3 p{margin:0;font-size:16px;color:var(--muted)}
+@media (max-width:820px){.p3{grid-template-columns:1fr}}
+.also{margin-top:18px;font-size:16px;color:var(--muted)}
+.local{background:#fff}
+.local .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+@media (max-width:820px){.local .wrap{grid-template-columns:1fr;gap:32px}}
+.local h2{font-size:clamp(32px,3.4vw,48px);margin-bottom:16px}
+.local ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.local li{display:flex;gap:10px;align-items:flex-start;font-size:17px}
+.local li svg{flex-shrink:0;margin-top:3px}
+.local p{font-size:17px;color:var(--muted);margin:0 0 14px}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.steps3 div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.steps3 b{display:block;font-family:var(--display);font-weight:900;font-size:40px;color:var(--accent);line-height:1}
+.steps3 h3{font-size:24px;margin:8px 0 6px}
+.steps3 p{margin:0;font-size:16px;color:var(--muted)}
+@media (max-width:820px){.steps3{grid-template-columns:1fr}}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pills a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;color:var(--ink);text-decoration:none}
+.pills a:hover{border-color:var(--accent);color:var(--accent)}
+.area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.area-grid a{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;text-decoration:none;color:var(--ink)}
+.area-grid a:hover{border-color:var(--accent)}
+.area-grid b{font-family:var(--display);font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
+.area-grid span{font-size:15px;color:var(--muted)}
+@media (max-width:1000px){.area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.area-grid{grid-template-columns:1fr}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Dump Hero", "url": "https://getdumphero.com/", "telephone": "+1-281-425-5240", "email": "support@getdumphero.com", "openingHours": "Mo-Su 00:00-23:59", "areaServed": [{"@type": "City", "name": "Fresno, TX"}, {"@type": "City", "name": "Missouri City, TX"}, {"@type": "City", "name": "Sugar Land, TX"}, {"@type": "City", "name": "Pearland, TX"}, {"@type": "City", "name": "Rosenberg, TX"}, {"@type": "City", "name": "Richmond, TX"}, {"@type": "City", "name": "Katy, TX"}, {"@type": "City", "name": "Houston, TX"}]}</script>
 </head>
+
 <body>
 
 <header class="site-header">
 <div class="wrap">
 <div class="header-left">
-<button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir menú"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
-<a class="brand" href="/es/#top" aria-label="Inicio de Dump Hero">
+<button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+<a class="brand" href="/#top" aria-label="Dump Hero home">
 <svg class="icon" width="38" height="38" viewBox="0 0 40 40" fill="none" stroke="#FB923C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12h22l-3 14H9z"/><path d="M28 16h5l3 5v5h-8"/><circle cx="12" cy="31" r="3"/><circle cx="30" cy="31" r="3"/></svg>
 <span>Dump Hero</span>
 </a>
 </div>
 <div class="menu-panel" id="menu-panel" hidden>
 <div class="group">
-<div class="menu-lang" role="group" aria-label="Idioma"><a href="/team/" lang="en" hreflang="en">English</a><span aria-current="true">Español</span></div>
+<div class="menu-lang" role="group" aria-label="Language"><span aria-current="true">English</span><a href="/es/" lang="es" hreflang="es">Español</a></div>
 </div>
 <div class="group">
-<a class="primary" href="/es/#quote">Solicitar cotización</a>
+<a class="primary" href="/#quote">Request a quote</a>
 </div>
 <div class="group">
-<div class="group-title">Información de contacto</div>
-<a class="contact-line" href="tel:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Llamar al <strong>281-425-5240</strong></span></a>
-<a class="contact-line" href="sms:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Mensaje al <strong>281-425-5240</strong></span></a>
-<a class="contact-line" href="mailto:support@getdumphero.com"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Correo <strong>support@getdumphero.com</strong></span></a>
-<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Abierto 24/7</span></div>
-<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Houston y áreas cercanas</span></div>
+<div class="group-title">Contact info</div>
+<a class="contact-line" href="tel:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Call <strong>281-425-5240</strong></span></a>
+<a class="contact-line" href="sms:+12814255240"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Text <strong>281-425-5240</strong></span></a>
+<a class="contact-line" href="mailto:support@getdumphero.com"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Email <strong>support@getdumphero.com</strong></span></a>
+<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Open 24/7</span></div>
+<div class="contact-line"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Houston and surrounding areas</span></div>
 </div>
 <div class="group more">
-<div class="group-title">Más</div>
-<a href="/es/#services">Servicios</a>
-<a href="/es/#materials">Materiales que entregamos</a>
-<a href="/es/#how">Cómo funciona</a>
-<a href="/es/#jobs">Trabajos realizados</a>
-<a href="#team">Conozca al dueño</a>
-<a href="#trailer">Conozca el tráiler</a>
+<div class="group-title">More</div>
+<a href="/#services">Services</a>
+<a href="/#materials">Materials we deliver</a>
+<a href="/#how">How it works</a>
+<a href="/#jobs">Completed jobs</a>
+<a href="/team/">Meet the owner</a>
+<a href="/areas/">Service areas</a>
 </div>
 </div>
-<nav class="nav" aria-label="Principal">
-<a class="link" href="/es/#services">Servicios</a>
-<a class="link" href="/es/#materials">Materiales</a>
-<a class="link" href="/es/#how">Cómo funciona</a>
-<a class="link" href="#team">Conozca al dueño</a>
-<a class="link" href="/es/#quote">Cotizar</a>
-<div class="lang-switch" role="group" aria-label="Idioma"><a href="/team/" lang="en" hreflang="en" aria-label="English">EN</a><span aria-current="true">ES</span></div>
+<nav class="nav" aria-label="Main">
+<a class="link" href="/#services">Services</a>
+<a class="link" href="/#materials">Materials</a>
+<a class="link" href="/#how">How it works</a>
+<a class="link" href="/areas/">Service areas</a>
+<a class="link" href="/#quote">Get a quote</a>
+<div class="lang-switch" role="group" aria-label="Language"><span aria-current="true">EN</span><a href="/es/" lang="es" hreflang="es" aria-label="Español">ES</a></div>
 <a class="btn btn-accent" href="tel:+12814255240">
 <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-<span class="call-long">Llame al 281-425-5240</span><span class="call-short">Llamar</span>
+<span class="call-long">Call 281-425-5240</span><span class="call-short">Call now</span>
 </a>
 </nav>
 </div>
 </header>
 
 <main>
-<div class="page-hero" id="top"><div class="wrap">
-<div class="kicker">Negocio de veteranos</div>
-<h1>Conozca al dueño</h1>
-<p>El veterano detrás de cada trabajo de Dump Hero.</p>
+<div class="city-hero" id="top"><div class="wrap">
+<div class="copy">
+<div class="crumbs"><a href="/">Home</a> › Service areas</div>
+<h1>Service Areas</h1>
+<p class="lead">Dump Hero is based in Fresno, TX, and serves Houston and the surrounding areas 24/7 with junk removal, dump trailer rental, cleanouts, demolition and material delivery.</p>
+<form class="quick" id="quick-form" novalidate data-city="Service areas" data-ok="Thanks! We got your request and will call or text you shortly at" data-err-phone="Please enter a phone number we can reach you at." data-err-send="We could not send that. Please call or text 281-425-5240.">
+<div class="quick-title">Get your price fast</div>
+<div class="qrow">
+<label class="sr" for="qk-service">Service</label><select id="qk-service" name="service"><option>Junk removal (from $175)</option><option>Dump trailer rental (from $150)</option><option>Material delivery (from $130)</option><option>Cleanout</option><option>Storm or yard debris</option><option>Demolition</option><option>Something else</option></select>
+<label class="sr" for="qk-zip">ZIP code</label><input id="qk-zip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="ZIP code">
+<label class="sr" for="qk-phone">Phone number</label><input id="qk-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number">
+<button class="btn btn-accent" type="submit">Get my price</button>
+</div>
+<div class="quick-msg" role="status" aria-live="polite"></div>
+<div class="quick-alt"><a href="tel:+12814255240">Call 281-425-5240</a><a href="sms:+12814255240?&body=Hi%20Dump%20Hero%21%20I%27d%20like%20a%20quote.%20Here%27s%20a%20photo%20of%20what%20I%20need%20hauled%3A">Text us a photo</a><span>No spam. We reply by call or text, 24/7.</span></div>
+</form>
+</div>
+<img src="/images/trailer-hitched.jpg" alt="Dump Hero truck and dump trailer" width="1200" height="900" loading="eager">
 </div></div>
-<!-- ===== START: Meet the owner ===== -->
-<section id="team">
-<div class="wrap">
-<div class="team-grid" style="grid-template-columns:minmax(0,420px)">
-<article class="member"><img class="photo" src="/images/owner-isai.jpg" alt="Isai Guevara, dueño de Dump Hero, frente a un tráiler de volteo cargado" style="object-fit:cover;object-position:50% 30%;border:none;width:100%"><h3>Isai Guevara</h3><div class="role">Dueño</div></article>
-</div>
-</div>
-</section>
-<!-- ===== END: Meet the owner ===== -->
+<section><div class="wrap">
+<div class="eyebrow">Where we work</div>
+<h2 class="section-title">Pick your area</h2>
+<div class="area-grid"><a href="/areas/fresno/"><b>Fresno</b><span>Fort Bend County</span></a><a href="/areas/missouri-city/"><b>Missouri City</b><span>Fort Bend County</span></a><a href="/areas/sugar-land/"><b>Sugar Land</b><span>Fort Bend County</span></a><a href="/areas/pearland/"><b>Pearland</b><span>Brazoria County</span></a><a href="/areas/rosenberg/"><b>Rosenberg</b><span>Fort Bend County</span></a><a href="/areas/richmond/"><b>Richmond</b><span>Fort Bend County</span></a><a href="/areas/katy/"><b>Katy</b><span>Harris, Fort Bend and Waller Counties</span></a><a href="/areas/houston/"><b>Southwest Houston</b><span>Harris and Fort Bend Counties</span></a></div>
+<p class="also">We also serve Pasadena, League City, Baytown, Cypress, Spring, The Woodlands and other Houston-area communities. Not sure if we cover you? Call or text 281-425-5240.</p>
+</div></section>
 
-<!-- ===== START: Meet the trailer (photos) ===== -->
-<section class="gallery" id="trailer">
-<div class="wrap">
-<h2 class="section-title">Conozca el tráiler</h2>
-<div class="photos">
-<figure><img src="/images/trailer-hitched.jpg" alt="Tráiler de volteo enganchado y listo para salir" loading="lazy" style="object-position:55% 55%"><figcaption>Enganchado y listo para salir</figcaption></figure>
-<figure><img src="/images/trailer-dumping.jpg" alt="Caja del tráiler de volteo levantada para descargar" loading="lazy"><figcaption>Descarga justo donde lo necesita</figcaption></figure>
-<figure><img src="/images/trailer-ramps.jpg" alt="Tráiler de volteo con la puerta trasera abierta y las rampas abajo" loading="lazy" style="object-position:50% 60%"><figcaption>Rampas para cargar fácilmente</figcaption></figure>
-</div>
-</div>
-</section>
-<!-- ===== END: Meet the trailer (photos) ===== -->
-
-<section class="cta-band"><div class="wrap"><div><h2>¿Listo para empezar?</h2><p>Díganos qué necesita y le contactaremos con un precio y una hora de entrega.</p></div><a class="btn" href="/es/#quote">Pida su cotización gratis</a></div></section>
 </main>
 
 <footer>
 <div class="wrap">
 <div class="col">
 <span class="name">Dump Hero</span>
-<span>Negocio de veteranos · Acarreos, retiro de basura, limpiezas, demolición y entrega de materiales en Houston y áreas cercanas</span>
+<span>Veteran owned &amp; operated · Hauling, junk removal, cleanouts, demolition and material delivery in Houston and surrounding areas</span>
 </div>
 <div class="col right">
-<a href="/areas/">Áreas de servicio</a>
+<a href="/areas/">Service areas</a>
 <a href="mailto:support@getdumphero.com">support@getdumphero.com</a>
-<a href="tel:+12814255240">281-425-5240 · Abierto 24/7</a>
+<a href="tel:+12814255240">281-425-5240 · Open 24/7</a>
 <span>© 2026 Dump Hero</span>
-<a href="/portal" rel="nofollow" style="font-weight:400;color:#A8A29E;font-size:14px">Acceso del equipo</a>
+<a href="/portal" rel="nofollow" style="font-weight:400;color:#A8A29E;font-size:14px">Team login</a>
 </div>
 </div>
 </footer>
-
+<nav class="mbar" aria-label="Contact"><a href="tel:+12814255240"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a><a href="sms:+12814255240?&body=Hi%20Dump%20Hero%21%20I%27d%20like%20a%20quote.%20Here%27s%20a%20photo%20of%20what%20I%20need%20hauled%3A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a><a class="q" href="#quote">Get a quote</a></nav>
 <script>
-(function(){
-  var form = document.getElementById('quote-form');
-  if (!form) return;
-  var msg = document.getElementById('form-msg');
-  var thanks = document.getElementById('thanks');
-  var thanksText = document.getElementById('thanks-text');
-  var input = document.getElementById('q-photos');
-  var thumbs = document.getElementById('thumbs');
-  var submitBtn = form.querySelector('.submit');
-  var MAX_PHOTOS = 5, MAX_TOTAL = 3.3 * 1024 * 1024;
-  var photos = []; // {name, type, data, url}
-
-  function showError(text){ msg.className = 'form-msg show error'; msg.textContent = text; }
-  function clearMsg(){ msg.className = 'form-msg'; msg.textContent = ''; }
-
-  function readAsDataURL(file){
-    return new Promise(function(resolve, reject){
-      var r = new FileReader();
-      r.onload = function(){ resolve(r.result); };
-      r.onerror = reject;
-      r.readAsDataURL(file);
-    });
-  }
-
-  // Shrink photos in the browser so uploads are fast and fit in one email.
-  function shrink(file){
-    return new Promise(function(resolve){
-      var url = URL.createObjectURL(file);
-      var img = new Image();
-      img.onload = function(){
-        var max = 1600, w = img.naturalWidth, h = img.naturalHeight;
-        var scale = Math.min(1, max / Math.max(w, h));
-        var c = document.createElement('canvas');
-        c.width = Math.round(w * scale); c.height = Math.round(h * scale);
-        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-        URL.revokeObjectURL(url);
-        var data = c.toDataURL('image/jpeg', 0.75);
-        var base = (file.name || 'photo').replace(/\.[^.]+$/, '');
-        resolve({ name: base + '.jpg', type: 'image/jpeg', data: data, url: data });
-      };
-      img.onerror = function(){
-        URL.revokeObjectURL(url);
-        // Browser can't preview this format (e.g. HEIC on some computers); send the original if small enough.
-        if (file.size <= 2.5 * 1024 * 1024) {
-          readAsDataURL(file).then(function(data){
-            resolve({ name: file.name || 'photo', type: (file.type || 'image/heic').toLowerCase(), data: data, url: '' });
-          }, function(){ resolve(null); });
-        } else { resolve(null); }
-      };
-      img.src = url;
-    });
-  }
-
-  function totalSize(){
-    return photos.reduce(function(sum, p){ return sum + p.data.length * 0.75; }, 0);
-  }
-
-  function renderThumbs(){
-    thumbs.innerHTML = '';
-    photos.forEach(function(p, i){
-      var d = document.createElement('div'); d.className = 'thumb';
-      if (p.url) { var im = document.createElement('img'); im.src = p.url; im.alt = 'Foto seleccionada ' + (i + 1); d.appendChild(im); }
-      else { d.style.display = 'flex'; d.style.alignItems = 'center'; d.style.justifyContent = 'center'; d.style.fontSize = '12px'; d.textContent = 'Foto ' + (i + 1); }
-      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Quitar foto ' + (i + 1)); b.textContent = '\u00d7';
-      b.addEventListener('click', function(){ photos.splice(i, 1); renderThumbs(); });
-      d.appendChild(b); thumbs.appendChild(d);
-    });
-  }
-
-  input.addEventListener('change', function(){
-    clearMsg();
-    var files = Array.prototype.slice.call(input.files || []);
-    input.value = '';
-    var room = MAX_PHOTOS - photos.length;
-    if (files.length > room) { showError('Puede agregar hasta ' + MAX_PHOTOS + ' fotos.'); files = files.slice(0, Math.max(room, 0)); }
-    Promise.all(files.map(shrink)).then(function(results){
-      var skipped = 0;
-      results.forEach(function(p){
-        if (!p) { skipped++; return; }
-        if (totalSize() + p.data.length * 0.75 > MAX_TOTAL) { skipped++; return; }
-        photos.push(p);
-      });
-      if (skipped) showError(skipped === 1 ? 'No se pudo agregar una foto. Intente con JPG o PNG, o una foto más pequeña.' : 'No se pudieron agregar ' + skipped + ' fotos. Intente con archivos JPG o PNG, o menos fotos.');
-      renderThumbs();
-    });
-  });
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    clearMsg();
-    var name = form.name.value.trim(), phone = form.phone.value.trim(), email = form.email.value.trim();
-    if (!name || !phone) {
-      showError('Por favor escriba su nombre y teléfono para poder contactarle.');
-      (name ? form.phone : form.name).focus();
-      return;
-    }
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showError('Por favor revise su correo electrónico.');
-      form.email.focus();
-      return;
-    }
-    var payload = {
-      name: name, phone: phone, email: email,
-      service: form.service.value,
-      address: form.address.value.trim(),
-      date: form.date.value,
-      notes: form.notes.value.trim(),
-      material: form.service.selectedIndex === 2 ? form.material.value.trim() : '',
-      yards: form.service.selectedIndex === 2 ? form.yards.value.trim() : '',
-      company: form.company.value,
-      lang: document.documentElement.lang || 'en',
-      photos: photos.map(function(p){ return { name: p.name, type: p.type, data: p.data }; })
-    };
-    submitBtn.disabled = true;
-    submitBtn.textContent = photos.length ? 'Enviando su solicitud y fotos\u2026' : 'Enviando\u2026';
-    fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-      .then(function(r){ return r.json().catch(function(){ return { ok: false }; }).then(function(j){ return { ok: r.ok && j.ok, error: j.error }; }); })
-      .then(function(result){
-        if (!result.ok) throw new Error(result.error || '');
-        thanksText.textContent = '¡Gracias, ' + name.split(' ')[0] + '! Recibimos su solicitud y le contactaremos pronto al ' + phone + '.';
-        form.hidden = true;
-        thanks.hidden = false;
-        thanks.focus();
-        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(function(err){
-        showError('No pudimos enviar su solicitud en este momento. Por favor llame o envíe mensaje al 281-425-5240.');
-      })
-      .then(function(){
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Solicitar mi cotización';
-      });
-  });
-
-  document.getElementById('again').addEventListener('click', function(){
-    form.reset(); photos = []; renderThumbs(); clearMsg(); var mfx = document.getElementById('mat-fields'); if (mfx) mfx.hidden = true;
-    thanks.hidden = true; form.hidden = false;
-    form.name.focus();
-  });
-})();
 (function(){
   var btn=document.getElementById('menu-btn'), panel=document.getElementById('menu-panel');
   function setOpen(open){
     btn.setAttribute('aria-expanded', open ? 'true':'false');
-    btn.setAttribute('aria-label', open ? 'Cerrar menú':'Abrir menú');
+    btn.setAttribute('aria-label', open ? 'Close menu':'Open menu');
     panel.hidden=!open;
   }
   btn.addEventListener('click', function(e){ e.stopPropagation(); setOpen(panel.hidden); });
@@ -536,213 +469,19 @@ footer a{color:var(--ground);font-weight:600;text-decoration:none}
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !panel.hidden){ setOpen(false); btn.focus(); } });
 })();
 (function(){
-  var stage = document.getElementById('dh-stage');
-  if (!stage || !stage.querySelector) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  var veh = document.getElementById('dh-vehicle'), bed = document.getElementById('dh-bed'),
-      gate = document.getElementById('dh-gate'), heap = document.getElementById('dh-heap'),
-      pile = document.getElementById('dh-pile'), barrel = document.getElementById('dh-cyl-barrel'),
-      rod = document.getElementById('dh-cyl-rod'), partsG = document.getElementById('dh-particles'),
-      hint = document.getElementById('dh-hint'), stream = document.getElementById('dh-stream');
-  var wheels = Array.prototype.map.call(stage.querySelectorAll('.dh-wheel'), function(g){
-    return { g: g, cx: +g.getAttribute('data-cx'), cy: +g.getAttribute('data-cy'), r: +g.getAttribute('data-r') };
-  });
-  var HINT_AGAIN = stage.getAttribute('data-hint-again');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var PX = 750, PY = 222, MAX_TILT = 35, GROUND = 271, PILE_X = 812, PILE_MAX = 42, START_X = -800;
-  var busy = false, played = false, pileH = 0, tilt = 0;
-
-  function rot(px, py, a){
-    var r = a * Math.PI / 180, dx = px - PX, dy = py - PY, c = Math.cos(r), s = Math.sin(r);
-    return [PX + dx * c - dy * s, PY + dx * s + dy * c];
-  }
-  function setBed(a){
-    tilt = a;
-    bed.setAttribute('transform', 'rotate(' + a + ' ' + PX + ' ' + PY + ')');
-    var top = rot(490, 216, a), bx = 560, by = 228, vx = top[0] - bx, vy = top[1] - by,
-        len = Math.sqrt(vx * vx + vy * vy) || 1, bl = Math.min(72, len),
-        ex = bx + vx / len * bl, ey = by + vy / len * bl;
-    barrel.setAttribute('x1', bx); barrel.setAttribute('y1', by); barrel.setAttribute('x2', ex); barrel.setAttribute('y2', ey);
-    rod.setAttribute('x1', ex); rod.setAttribute('y1', ey); rod.setAttribute('x2', top[0]); rod.setAttribute('y2', top[1]);
-  }
-  function setGate(a){ gate.setAttribute('transform', 'rotate(' + a + ' 753 130)'); }
-  function setHeap(s){ heap.setAttribute('transform', 'translate(0 131) scale(1 ' + Math.max(s, 0.001) + ') translate(0 -131)'); }
-  function setPile(h){
-    pileH = h;
-    if (h < 0.5) { pile.setAttribute('d', ''); return; }
-    var w = h * 3.4;
-    pile.setAttribute('d', 'M' + (PILE_X - w / 2) + ' ' + GROUND + ' Q' + PILE_X + ' ' + (GROUND - 2 * h) + ' ' + (PILE_X + w / 2) + ' ' + GROUND + ' Z');
-  }
-  function setStream(k){
-    if (k <= 0.02) { stream.setAttribute('opacity', '0'); return; }
-    var o = rot(752, 206, tilt), land = GROUND - pileAt(o[0] + 34) - 2;
-    stream.setAttribute('d', 'M' + o[0].toFixed(1) + ' ' + o[1].toFixed(1) + ' Q' + (o[0] + 30).toFixed(1) + ' ' + (o[1] + 6).toFixed(1) + ' ' + (o[0] + 36).toFixed(1) + ' ' + land.toFixed(1));
-    stream.setAttribute('stroke-width', (3 + 7 * k).toFixed(1));
-    stream.setAttribute('opacity', (0.95 * k).toFixed(2));
-  }
-  function pileAt(x){
-    var w = pileH * 3.4; if (pileH < 0.5 || Math.abs(x - PILE_X) > w / 2) return 0;
-    var u = (x - PILE_X) / (w / 2); return pileH * (1 - u * u);
-  }
-  function setDrive(x){
-    veh.setAttribute('transform', 'translate(' + x + ' 0)');
-    wheels.forEach(function(w){
-      var ang = (x - START_X) / w.r * 180 / Math.PI;
-      w.g.setAttribute('transform', 'rotate(' + ang.toFixed(2) + ' ' + w.cx + ' ' + w.cy + ')');
-    });
-  }
-  function ease(t){ return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
-  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
-  function seg(t, a, b){ var v = (t - a) / (b - a); return v < 0 ? 0 : v > 1 ? 1 : v; }
-
-  var pool = [], shades = ['#D6AE6B', '#C99D57', '#E2BF82', '#BF9250'];
-  for (var i = 0; i < 120; i++) {
-    var c = document.createElementNS(NS, 'circle');
-    c.setAttribute('r', (2.4 + Math.random() * 2.4).toFixed(1));
-    c.setAttribute('fill', shades[i % shades.length]);
-    c.setAttribute('visibility', 'hidden');
-    partsG.appendChild(c);
-    pool.push({ el: c, on: false, x: 0, y: 0, vx: 0, vy: 0 });
-  }
-  function spawn(){
-    for (var i = 0; i < pool.length; i++) {
-      var p = pool[i];
-      if (!p.on) {
-        var o = rot(752, 206, tilt);
-        p.on = true; p.x = o[0] + Math.random() * 4; p.y = o[1] + Math.random() * 6;
-        p.vx = 45 + Math.random() * 70; p.vy = -20 + Math.random() * 40;
-        p.el.setAttribute('visibility', 'visible');
-        return;
-      }
-    }
-  }
-  function stepParticles(dt){
-    var alive = 0;
-    pool.forEach(function(p){
-      if (!p.on) return;
-      p.vy += 1100 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
-      if (p.y >= GROUND - pileAt(p.x) - 1) { p.on = false; p.el.setAttribute('visibility', 'hidden'); return; }
-      alive++;
-      p.el.setAttribute('cx', p.x.toFixed(1)); p.el.setAttribute('cy', p.y.toFixed(1));
-    });
-    return alive;
-  }
-
-  function drive(done){
-    busy = true;
-    var start = null;
-    function f(ts){
-      if (start === null) start = ts;
-      var t = seg(ts - start, 0, 1800);
-      setDrive(START_X * (1 - easeOut(t)));
-      if (t < 1) requestAnimationFrame(f); else done();
-    }
-    requestAnimationFrame(f);
-  }
-
-  function dump(){
-    busy = true;
-    var start = null, last = null, acc = 0, PRE = pileH > 0.5 ? 350 : 0;
-    setHeap(1);
-    function f(ts){
-      if (start === null) { start = ts; last = ts; }
-      var dt = Math.min((ts - last) / 1000, 0.05); last = ts;
-      var t = ts - start - PRE;
-      if (t < 0) { pile.setAttribute('opacity', (1 + t / PRE).toFixed(2)); requestAnimationFrame(f); return; }
-      if (PRE && pile.getAttribute('opacity') !== '1') { setPile(0); pile.setAttribute('opacity', '1'); }
-      var a = t < 3100 ? MAX_TILT * ease(seg(t, 0, 1100)) : MAX_TILT * (1 - ease(seg(t, 3100, 4200)));
-      setBed(a);
-      setGate(t < 3100 ? -55 * ease(seg(t, 250, 1000)) : -55 * (1 - ease(seg(t, 3100, 3900))));
-      var p = seg(t, 700, 2900);
-      setHeap(1 - ease(seg(t, 300, 2500)));
-      setStream(Math.min(seg(t, 700, 1000), 1 - seg(t, 2600, 3000)));
-      if (t >= 700) setPile(PILE_MAX * easeOut(p));
-      if (t >= 700 && t <= 2900) { acc += dt * 140; while (acc >= 1) { spawn(); acc--; } }
-      var alive = stepParticles(dt);
-      if (t < 4300 || alive > 0) requestAnimationFrame(f);
-      else { setBed(0); setGate(0); setStream(0); busy = false; if (hint && HINT_AGAIN) hint.lastChild.textContent = HINT_AGAIN; }
-    }
-    requestAnimationFrame(f);
-  }
-
-  function staticToggle(){
-    var up = tilt < 1;
-    setBed(up ? MAX_TILT : 0); setGate(up ? -55 : 0); setHeap(up ? 0 : 1); setPile(PILE_MAX);
-  }
-
-  setBed(0); setGate(0); setHeap(1); setPile(0);
-  if (reduce) {
-    setDrive(0); setBed(0); setHeap(0); setPile(PILE_MAX);
-    stage.addEventListener('click', staticToggle);
-    return;
-  }
-  var io = null;
-  function firstRun(){ if (played) return; played = true; if (io) io.disconnect(); drive(dump); }
-  if ('IntersectionObserver' in window) {
-    setDrive(START_X);
-    io = new IntersectionObserver(function(entries){ if (entries[0].isIntersecting) firstRun(); }, { threshold: 0.45 });
-    io.observe(stage);
-  } else { setDrive(0); played = true; }
-  stage.addEventListener('click', function(){
-    if (busy) return;
-    if (!played) firstRun(); else dump();
-  });
-})();
-(function(){
-  var form = document.getElementById('quote-form');
-  var dlg = document.getElementById('mat-dialog');
-  var sel = document.getElementById('q-service');
-  var matFields = document.getElementById('mat-fields');
-  if (!form || !sel) return;
-  var MAT_INDEX = 2;
-  function syncMatFields(){ if (matFields) matFields.hidden = sel.selectedIndex !== MAT_INDEX; }
-  sel.addEventListener('change', syncMatFields);
-  syncMatFields();
-  function goToQuote(){
-    var q = document.getElementById('quote');
-    if (q) q.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function(){ var n = document.getElementById('q-name'); if (n) n.focus({ preventScroll: true }); }, 500);
-  }
-  document.querySelectorAll('[data-service]').forEach(function(a){
-    a.addEventListener('click', function(){ sel.selectedIndex = +a.getAttribute('data-service'); syncMatFields(); });
-  });
-  var canDialog = dlg && typeof dlg.showModal === 'function';
-  document.querySelectorAll('[data-material]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      sel.selectedIndex = MAT_INDEX; syncMatFields();
-      if (!canDialog) return;
-      e.preventDefault();
-      err.className = 'mat-err'; err.textContent = '';
-      dlg.showModal();
-    });
-  });
-  if (!canDialog) return;
-  var mf = document.getElementById('mat-form'), err = document.getElementById('mat-err'),
-      otherMat = document.getElementById('mat-other'), otherYd = document.getElementById('yd-other');
-  function toggleOthers(){
-    var m = mf.querySelector('input[name="mat"]:checked'), y = mf.querySelector('input[name="yd"]:checked');
-    otherMat.hidden = !(m && m.value === '__other');
-    otherYd.hidden = !(y && y.value === '__other');
-  }
-  mf.addEventListener('change', function(e){
-    toggleOthers();
-    if (e.target.name === 'mat' && e.target.value === '__other') otherMat.focus();
-    if (e.target.name === 'yd' && e.target.value === '__other') otherYd.focus();
-  });
-  document.getElementById('mat-close').addEventListener('click', function(){ dlg.close(); });
-  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
-  mf.addEventListener('submit', function(e){
+  var f = document.getElementById('quick-form'); if (!f) return;
+  var msg = f.querySelector('.quick-msg'), btn = f.querySelector('button'), city = f.getAttribute('data-city') || '';
+  f.addEventListener('submit', function(e){
     e.preventDefault();
-    var m = mf.querySelector('input[name="mat"]:checked'), y = mf.querySelector('input[name="yd"]:checked');
-    var material = m ? (m.value === '__other' ? otherMat.value.trim() : m.value) : '';
-    var yards = y ? (y.value === '__other' ? otherYd.value.trim() : (y.value === '__notsure' ? dlg.getAttribute('data-notsure') : y.value)) : '';
-    if (!material) { err.textContent = dlg.getAttribute('data-err-mat'); err.className = 'mat-err show'; (m ? otherMat : mf.querySelector('input[name="mat"]')).focus(); return; }
-    if (!yards) { err.textContent = dlg.getAttribute('data-err-yards'); err.className = 'mat-err show'; (y ? otherYd : mf.querySelector('input[name="yd"]')).focus(); return; }
-    document.getElementById('q-material').value = material;
-    document.getElementById('q-yards').value = yards;
-    sel.selectedIndex = MAT_INDEX; syncMatFields();
-    dlg.close();
-    goToQuote();
+    var phone = f.querySelector('#qk-phone').value.trim();
+    if (phone.replace(/\D/g,'').length < 10) { msg.className = 'quick-msg'; msg.textContent = f.getAttribute('data-err-phone'); f.querySelector('#qk-phone').focus(); return; }
+    btn.disabled = true; msg.className = 'quick-msg'; msg.textContent = '…';
+    var svc = f.querySelector('#qk-service').value + (city ? ' (' + city + ' page)' : '');
+    fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ quick: true, phone: phone, zip: f.querySelector('#qk-zip').value.trim(), service: svc, lang: 'en' }) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if (!r.ok || j.ok === false) throw new Error(); }); })
+      .then(function(){ msg.className = 'quick-msg ok'; msg.textContent = f.getAttribute('data-ok') + ' ' + phone + '.'; f.reset(); })
+      .catch(function(){ msg.className = 'quick-msg'; msg.textContent = f.getAttribute('data-err-send'); })
+      .then(function(){ btn.disabled = false; });
   });
 })();
 </script>
