@@ -387,6 +387,18 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LocalBusiness", "@id": "https://getdumphero.com/#business", "name": "Dump Hero", "url": "https://getdumphero.com/", "telephone": "+1-832-501-9988", "email": "support@getdumphero.com", "image": "https://getdumphero.com/images/trailer-hitched.jpg", "openingHours": "Mo-Su 00:00-23:59", "address": {"@type": "PostalAddress", "addressLocality": "Fresno", "addressRegion": "TX", "postalCode": "77545", "addressCountry": "US"}, "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "Texas VetHUB Certification", "credentialCategory": "certification", "recognizedBy": {"@type": "GovernmentOrganization", "name": "Texas Comptroller of Public Accounts"}}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://getdumphero.com/"}, {"@type": "ListItem", "position": 2, "name": "Completed jobs", "item": "https://getdumphero.com/jobs/"}, {"@type": "ListItem", "position": 3, "name": "Shed removal", "item": "https://getdumphero.com/jobs/shed-removal-fresno-tx/"}]}]}</script>
+<style id="ba-css">
+.ba-slider{position:relative;max-width:640px;margin-top:24px;border-radius:12px;overflow:hidden;aspect-ratio:3/4;background:#1C1A17;touch-action:pan-y;user-select:none;-webkit-user-select:none;--pos:50%}
+.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ba-slider .ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-slider .ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);pointer-events:none}
+.ba-slider .ba-knob{position:absolute;top:50%;left:var(--pos);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#C2410C;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;pointer-events:none}
+.ba-slider .ba-tag{position:absolute;top:12px;background:#1C1A17;color:#F3F0EA;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:999px;pointer-events:none}
+.ba-slider .ba-tag.b{left:12px}.ba-slider .ba-tag.a{right:12px}
+.ba-slider input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.ba-slider input:focus-visible~.ba-knob{outline:3px solid #fff;outline-offset:3px}
+.ba-hint{margin:10px 0 0;color:var(--muted);font-size:15px}
+</style>
 </head>
 <body>
 
@@ -470,7 +482,7 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 <div><b>Location</b><span><a href="/areas/fresno/">Fresno, TX</a></span></div>
 <div><b>Date</b><span>September 2026</span></div>
 </div>
-<div class="ba2"><figure><img src="/images/job-shed-before.webp" alt="Old metal and wood shed in a Fresno backyard before removal" width="750" height="1000" loading="lazy"><figcaption>Before</figcaption></figure><figure><img src="/images/job-shed-after.webp" alt="The same Fresno backyard after the shed was torn down and hauled away" width="750" height="1000" loading="lazy"><figcaption>After</figcaption></figure></div>
+<div class="ba-slider"><img class="ba-after" src="/images/job-shed-after.webp" alt="The same Fresno backyard after the shed was torn down and hauled away" width="750" height="1000" loading="lazy"><img class="ba-before" src="/images/job-shed-before.webp" alt="Old metal and wood shed in a Fresno backyard before removal" width="750" height="1000" loading="lazy"><span class="ba-tag b">Before</span><span class="ba-tag a">After</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="ba-line"></span><span class="ba-knob"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div><p class="ba-hint">Drag the slider to see before and after.</p>
 <div class="story" style="margin-top:28px"><p>A Fresno homeowner had an old shed falling apart in the backyard, with metal siding, rotted wood framing and loose debris piled around it.</p><p>Our crew took the shed apart, loaded the metal, wood and debris into our dump trailer and hauled it all to a permitted facility, opening the space back up for the homeowner.</p></div>
 <p class="also">Have a job like this in Fresno or nearby? Call or text <a href="tel:+18325019988">832-501-9988</a> or send the form above for a free quote.</p>
 </div></section>
@@ -496,6 +508,8 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 <a href="/areas/">Service areas</a>
 <a href="/commercial/">Commercial &amp; government</a>
 <a href="/junk-removal-cost/">Junk removal cost</a>
+<a href="/houston-heavy-trash-pickup/">Houston heavy trash rules</a>
+<a href="/where-to-dump-junk-fort-bend-county/">Where to dump junk</a>
 <a href="mailto:support@getdumphero.com">support@getdumphero.com</a>
 <a href="tel:+18325019988">832-501-9988 · Open 24/7</a>
 <span>© 2026 Dump Hero</span>
@@ -534,6 +548,8 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
   });
 })();
 </script>
+<script id="ba-js">document.querySelectorAll('.ba-slider').forEach(function(s){var r=s.querySelector('input');function u(){s.style.setProperty('--pos',r.value+'%')}r.addEventListener('input',u);u();
+s.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse')return;var b=s.getBoundingClientRect();r.value=Math.round((e.clientX-b.left)/b.width*100);u()})});</script>
 <script id="dh-track">(function(){try{var L=localStorage,S=sessionStorage,q=location.search;if(/[?&]notrack/.test(q)){L.setItem('dh_nt','1')}if(/[?&]track=on/.test(q)){L.removeItem('dh_nt')}if(L.getItem('dh_nt'))return;}catch(x){var S=null}
 var f=0,r='',u='',lp=location.pathname;try{if(!S.getItem('dh_s')){f=1;var ref=document.referrer;r=(ref&&ref.indexOf(location.host)<0)?ref:'';var m=q.match(/[?&]utm_source=([^&]+)/);u=m?decodeURIComponent(m[1]):'';S.setItem('dh_s',JSON.stringify({r:r,u:u,lp:lp}))}else{var o=JSON.parse(S.getItem('dh_s'));r=o.r;u=o.u;lp=o.lp}}catch(x){}
 function s(e,w){var b=JSON.stringify({e:e,p:location.pathname,r:r,u:u,lp:lp,f:e=='view'?f:0,w:w||''});try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/track',b)))fetch('/api/track',{method:'POST',body:b,keepalive:true})}catch(x){}}
