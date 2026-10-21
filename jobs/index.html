@@ -522,5 +522,12 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
   });
 })();
 </script>
+<script id="dh-track">(function(){try{var L=localStorage,S=sessionStorage,q=location.search;if(/[?&]notrack/.test(q)){L.setItem('dh_nt','1')}if(/[?&]track=on/.test(q)){L.removeItem('dh_nt')}if(L.getItem('dh_nt'))return;}catch(x){var S=null}
+var f=0,r='',u='',lp=location.pathname;try{if(!S.getItem('dh_s')){f=1;var ref=document.referrer;r=(ref&&ref.indexOf(location.host)<0)?ref:'';var m=q.match(/[?&]utm_source=([^&]+)/);u=m?decodeURIComponent(m[1]):'';S.setItem('dh_s',JSON.stringify({r:r,u:u,lp:lp}))}else{var o=JSON.parse(S.getItem('dh_s'));r=o.r;u=o.u;lp=o.lp}}catch(x){}
+function s(e,w){var b=JSON.stringify({e:e,p:location.pathname,r:r,u:u,lp:lp,f:e=='view'?f:0,w:w||''});try{if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/track',b)))fetch('/api/track',{method:'POST',body:b,keepalive:true})}catch(x){}}
+function where(a){var t=[['.mbar','Bottom bar'],['.menu-panel','Menu'],['header','Header'],['.thanks','Thank-you message'],['.hero,.hero-copy,.quick','Top of page'],['footer','Footer'],['.stop-final','Route section'],['#quote','Quote section']];for(var i=0;i<t.length;i++){if(a.closest(t[i][0]))return t[i][1]}var sec=a.closest('section[id]');return sec?sec.id:'Page body'}
+s('view');
+document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest&&ev.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('tel:')==0)s('call',where(a));else if(h.indexOf('sms:')==0)s('text',where(a));else if(h.indexOf('mailto:')==0)s('email',where(a))},true);
+var of=window.fetch;if(of){window.fetch=function(url){var p=of.apply(this,arguments);if(url==='/api/quote'){p.then(function(res){if(res.ok)s('quote',document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.quick')?'Top of page':'Quote form')},function(){})}return p}}})();</script>
 </body>
 </html>

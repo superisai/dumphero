@@ -7,6 +7,14 @@
     {
       "source": "/portal/",
       "destination": "/api/portal-page"
+    },
+    {
+      "source": "/portal/leads",
+      "destination": "/api/leads"
+    },
+    {
+      "source": "/portal/leads/",
+      "destination": "/api/leads"
     }
   ],
   "functions": {
