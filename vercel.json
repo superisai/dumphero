@@ -50,5 +50,27 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/review",
+      "destination": "https://g.page/r/CYwv9NBke5OyEBM/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/",
+      "destination": "https://g.page/r/CYwv9NBke5OyEBM/review",
+      "permanent": false
+    },
+    {
+      "source": "/resena",
+      "destination": "https://g.page/r/CYwv9NBke5OyEBM/review",
+      "permanent": false
+    },
+    {
+      "source": "/resena/",
+      "destination": "https://g.page/r/CYwv9NBke5OyEBM/review",
+      "permanent": false
+    }
   ]
 }
