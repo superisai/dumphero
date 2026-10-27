@@ -71,6 +71,26 @@
       "source": "/resena/",
       "destination": "https://g.page/r/CYwv9NBke5OyEBM/review",
       "permanent": false
+    },
+    {
+      "source": "/shed-demolition",
+      "destination": "/junk-removal/",
+      "permanent": true
+    },
+    {
+      "source": "/shed-demolition/",
+      "destination": "/junk-removal/",
+      "permanent": true
+    },
+    {
+      "source": "/es/demolicion-de-cobertizos",
+      "destination": "/es/retiro-de-basura/",
+      "permanent": true
+    },
+    {
+      "source": "/es/demolicion-de-cobertizos/",
+      "destination": "/es/retiro-de-basura/",
+      "permanent": true
     }
   ]
 }

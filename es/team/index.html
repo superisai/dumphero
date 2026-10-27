@@ -349,7 +349,7 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 <div class="group more">
 <div class="group-title">Más</div>
 <a href="/es/#services">Servicios</a>
-<a href="/es/#materials">Materiales que entregamos</a>
+
 <a href="/es/#how">Cómo funciona</a>
 <a href="/es/#jobs">Trabajos realizados</a>
 <a href="#team">Conozca al dueño</a>
@@ -357,7 +357,7 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 </div>
 <nav class="nav" aria-label="Principal">
 <a class="link" href="/es/#services">Servicios</a>
-<a class="link" href="/es/#materials">Materiales</a>
+
 <a class="link" href="/es/#how">Cómo funciona</a>
 <a class="link" href="#team">Conozca al dueño</a>
 <a class="link" href="/es/#quote">Cotizar</a>
@@ -402,7 +402,7 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 <div class="wrap">
 <div class="col">
 <img loading="lazy" decoding="async" class="footer-logo" src="/images/logo-full.webp" alt="Dump Hero" width="190" height="105">
-<span>Negocio de veteranos · Certificado VetHUB de Texas · Acarreos, retiro de basura, limpiezas, demolición y entrega de materiales en Houston y áreas cercanas</span>
+<span>Negocio de veteranos · Certificado VetHUB de Texas · Acarreos, retiro de basura, limpiezas y limpieza de obras en Houston y áreas cercanas</span>
 <img class="vh-foot" src="/images/vethub-logo.svg" alt="Certificado VetHUB de Texas" width="150" height="123" loading="lazy">
 </div>
 <div class="col right">
@@ -532,8 +532,8 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
       address: form.address.value.trim(),
       date: form.date.value,
       notes: form.notes.value.trim(),
-      material: form.service.selectedIndex === 2 ? form.material.value.trim() : '',
-      yards: form.service.selectedIndex === 2 ? form.yards.value.trim() : '',
+      material: '',
+      yards: '',
       company: form.company.value,
       lang: document.documentElement.lang || 'en',
       photos: photos.map(function(p){ return { name: p.name, type: p.type, data: p.data }; })
@@ -560,7 +560,7 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
   });
 
   document.getElementById('again').addEventListener('click', function(){
-    form.reset(); photos = []; renderThumbs(); clearMsg(); var mfx = document.getElementById('mat-fields'); if (mfx) mfx.hidden = true;
+    form.reset(); photos = []; renderThumbs(); clearMsg();
     thanks.hidden = true; form.hidden = false;
     form.name.focus();
   });
@@ -732,59 +732,10 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 })();
 (function(){
   var form = document.getElementById('quote-form');
-  var dlg = document.getElementById('mat-dialog');
   var sel = document.getElementById('q-service');
-  var matFields = document.getElementById('mat-fields');
   if (!form || !sel) return;
-  var MAT_INDEX = 2;
-  function syncMatFields(){ if (matFields) matFields.hidden = sel.selectedIndex !== MAT_INDEX; }
-  sel.addEventListener('change', syncMatFields);
-  syncMatFields();
-  function goToQuote(){
-    var q = document.getElementById('quote');
-    if (q) q.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function(){ var n = document.getElementById('q-name'); if (n) n.focus({ preventScroll: true }); }, 500);
-  }
   document.querySelectorAll('[data-service]').forEach(function(a){
-    a.addEventListener('click', function(){ sel.selectedIndex = +a.getAttribute('data-service'); syncMatFields(); });
-  });
-  var canDialog = dlg && typeof dlg.showModal === 'function';
-  document.querySelectorAll('[data-material]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      sel.selectedIndex = MAT_INDEX; syncMatFields();
-      if (!canDialog) return;
-      e.preventDefault();
-      err.className = 'mat-err'; err.textContent = '';
-      dlg.showModal();
-    });
-  });
-  if (!canDialog) return;
-  var mf = document.getElementById('mat-form'), err = document.getElementById('mat-err'),
-      otherMat = document.getElementById('mat-other'), otherYd = document.getElementById('yd-other');
-  function toggleOthers(){
-    var m = mf.querySelector('input[name="mat"]:checked'), y = mf.querySelector('input[name="yd"]:checked');
-    otherMat.hidden = !(m && m.value === '__other');
-    otherYd.hidden = !(y && y.value === '__other');
-  }
-  mf.addEventListener('change', function(e){
-    toggleOthers();
-    if (e.target.name === 'mat' && e.target.value === '__other') otherMat.focus();
-    if (e.target.name === 'yd' && e.target.value === '__other') otherYd.focus();
-  });
-  document.getElementById('mat-close').addEventListener('click', function(){ dlg.close(); });
-  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
-  mf.addEventListener('submit', function(e){
-    e.preventDefault();
-    var m = mf.querySelector('input[name="mat"]:checked'), y = mf.querySelector('input[name="yd"]:checked');
-    var material = m ? (m.value === '__other' ? otherMat.value.trim() : m.value) : '';
-    var yards = y ? (y.value === '__other' ? otherYd.value.trim() : (y.value === '__notsure' ? dlg.getAttribute('data-notsure') : y.value)) : '';
-    if (!material) { err.textContent = dlg.getAttribute('data-err-mat'); err.className = 'mat-err show'; (m ? otherMat : mf.querySelector('input[name="mat"]')).focus(); return; }
-    if (!yards) { err.textContent = dlg.getAttribute('data-err-yards'); err.className = 'mat-err show'; (y ? otherYd : mf.querySelector('input[name="yd"]')).focus(); return; }
-    document.getElementById('q-material').value = material;
-    document.getElementById('q-yards').value = yards;
-    sel.selectedIndex = MAT_INDEX; syncMatFields();
-    dlg.close();
-    goToQuote();
+    a.addEventListener('click', function(){ sel.selectedIndex = +a.getAttribute('data-service'); });
   });
 })();
 </script>
