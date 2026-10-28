@@ -924,7 +924,7 @@ var of=window.fetch;if(of){window.fetch=function(url){var p=of.apply(this,argume
   var mq=window.matchMedia;
   if(!mq('(min-width:901px)').matches || mq('(prefers-reduced-motion:reduce)').matches) return;
   var c=navigator.connection; if(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType||''))) return;
-  v.src='/videos/hero-loop.mp4';
+  v.src='/videos/hero-loop-v2.mp4';
   v.addEventListener('playing',function(){ v.classList.add('on'); },{once:true});
   var p=v.play(); if(p && p.catch) p.catch(function(){});
 })();
