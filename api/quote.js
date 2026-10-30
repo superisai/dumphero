@@ -11,6 +11,8 @@
 //                    default Resend test sender is used, which can only email the address
 //                    you signed up to Resend with.
 
+const C = require('./_lib/core');
+
 const MAX_PHOTOS = 5;
 const MAX_TOTAL_BYTES = 3.5 * 1024 * 1024; // keeps us under Vercel's 4.5 MB request limit
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif', 'image/gif'];
@@ -21,6 +23,10 @@ function clean(value, max) {
 
 function escapeHtml(s) {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function isSpanishReq(b) {
+  return clean(b.lang, 10).toLowerCase().startsWith('es');
 }
 
 function validEmail(s) {
@@ -52,6 +58,21 @@ module.exports = async function handler(req, res) {
   // Honeypot: real people never fill this hidden field; bots often do.
   if (clean(body.company, 200)) {
     return res.status(200).json({ ok: true });
+  }
+
+  // Rate limit: max 5 requests per hour and 15 per day from one device/network,
+  // and 150 per day site-wide, so bots can't flood the inbox. Fails open if storage is down.
+  if (C.hasStorage()) {
+    try {
+      const ip = C.clientIp(req);
+      const day = new Date().toISOString().slice(0, 10);
+      const keys = [['dh:qrl:h:' + ip, 3600, 5], ['dh:qrl:d:' + ip, 86400, 15], ['dh:qrl:all:' + day, 90000, 150]];
+      const counts = await Promise.all(keys.map(([k]) => C.redis(['INCR', k])));
+      await Promise.all(keys.map(([k, ttl], i) => (counts[i] === 1 ? C.redis(['EXPIRE', k, ttl]) : null)));
+      if (keys.some(([, , max], i) => counts[i] > max)) {
+        return res.status(429).json({ ok: false, error: isSpanishReq(body) ? 'Demasiadas solicitudes. Llame o mande un texto al 832-501-9988.' : 'Too many requests. Please call or text 832-501-9988.' });
+      }
+    } catch (e) { console.error('Rate limit check failed', e.message); }
   }
 
   const name = clean(body.name, 120);
