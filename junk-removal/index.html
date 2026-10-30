@@ -513,32 +513,62 @@ footer .col{gap:0}footer .col a{display:inline-flex;align-items:center;min-heigh
 </main>
 
 <footer>
-<div class="wrap">
-<div class="col">
+<div class="wrap ft">
+<div class="ft-col ft-brand">
 <img loading="lazy" decoding="async" class="footer-logo" src="/images/logo-full.webp" alt="Dump Hero" width="190" height="105">
 <span>Veteran owned &amp; operated · Texas VetHUB certified · Hauling, junk removal, cleanouts and construction cleanup in Houston and surrounding areas</span>
 <img class="vh-foot" src="/images/vethub-logo.svg" alt="Texas VetHUB certified" width="150" height="123" loading="lazy">
 </div>
-<div class="col right">
+<nav class="ft-col" aria-label="Services">
+<h3>Services</h3>
 <a href="/junk-removal/">Junk removal</a>
 <a href="/dump-trailer-rental/">Dump trailer rental</a>
-<a href="/jobs/">Recent jobs</a>
-<a href="/areas/">Service areas</a>
 <a href="/commercial/">Commercial &amp; government</a>
+<a href="/jobs/">Recent jobs</a>
+</nav>
+<nav class="ft-col" aria-label="Helpful info">
+<h3>Helpful info</h3>
 <a href="/junk-removal-cost/">Junk removal cost</a>
 <a href="/houston-heavy-trash-pickup/">Houston heavy trash rules</a>
 <a href="/where-to-dump-junk-fort-bend-county/">Where to dump junk</a>
+<a href="/areas/">Service areas</a>
+</nav>
+<div class="ft-col">
+<h3>Call or text</h3>
+<a class="ft-phone" href="tel:+18325019988">832-501-9988</a>
+<p class="ft-note">Open 24/7 · Based in Fresno, TX</p>
 <a href="mailto:support@getdumphero.com">support@getdumphero.com</a>
-<a href="tel:+18325019988">832-501-9988 · Open 24/7</a>
-<a href="https://www.yelp.com/biz/dump-hero-fresno" target="_blank" rel="noopener">Dump Hero on Yelp</a>
-<a href="https://nextdoor.com/page/dump-hero-iowa-colony-tx" target="_blank" rel="noopener">Dump Hero on Nextdoor</a>
-<a href="https://www.instagram.com/getdumphero/" target="_blank" rel="noopener">Dump Hero on Instagram</a>
-<a href="https://www.facebook.com/p/Dump-Hero-61591108231774/" target="_blank" rel="noopener">Dump Hero on Facebook</a>
+<div class="ft-social">
+<a href="/review" target="_blank" rel="noopener" aria-label="Leave Dump Hero a Google review">★ Google</a>
+<a href="https://www.yelp.com/biz/dump-hero-fresno" target="_blank" rel="noopener" aria-label="Dump Hero on Yelp">Yelp</a>
+<a href="https://nextdoor.com/page/dump-hero-iowa-colony-tx" target="_blank" rel="noopener" aria-label="Dump Hero on Nextdoor">Nextdoor</a>
+<a href="https://www.facebook.com/p/Dump-Hero-61591108231774/" target="_blank" rel="noopener" aria-label="Dump Hero on Facebook">Facebook</a>
+<a href="https://www.instagram.com/getdumphero/" target="_blank" rel="noopener" aria-label="Dump Hero on Instagram">Instagram</a>
+</div>
+</div>
+</div>
+<div class="wrap ft-bottom">
 <span>© 2026 Dump Hero</span>
-<a href="/privacy/" style="font-weight:400;color:#A8A29E;font-size:14px">Privacy policy</a>
-<a href="/portal" rel="nofollow" style="font-weight:400;color:#A8A29E;font-size:14px">Team login</a>
+<a href="/privacy/">Privacy policy</a>
+<a href="/portal" rel="nofollow">Team login</a>
 </div>
-</div>
+<style>
+footer .ft{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.25fr;gap:40px 32px;padding-top:56px;padding-bottom:36px;align-items:start}
+footer .ft-col{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+footer .ft-brand span{line-height:1.5;max-width:34ch}
+footer .ft h3{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A8A29E;margin:0 0 8px}
+footer .ft-col a{display:inline-flex;align-items:center;min-height:40px}
+footer .ft-phone{font-family:var(--display);font-size:28px;font-weight:900;letter-spacing:.01em;color:#fff!important;min-height:44px}
+footer .ft-note{color:var(--soft);font-size:15px;margin:2px 0 10px}
+footer .ft-social{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+footer .ft-social a{min-height:36px;padding:0 14px;border:1px solid #44403C;border-radius:999px;font-size:14px;font-weight:600}
+footer .ft-social a:hover,footer .ft-social a:focus-visible{border-color:var(--accent);color:#fff}
+footer .ft-col a:hover{color:#fff}
+footer .ft-bottom{display:flex;flex-direction:row!important;justify-content:flex-start!important;flex-wrap:wrap;gap:6px 20px;align-items:center;border-top:1px solid #2E2C28;padding-top:18px;padding-bottom:24px;font-size:14px;color:#A8A29E}
+footer .ft-bottom a{color:#A8A29E;font-weight:400;min-height:40px;display:inline-flex;align-items:center}
+@media (max-width:960px){footer .ft{grid-template-columns:1fr 1fr}footer .ft-brand{grid-column:1/-1}}
+@media (max-width:600px){footer .ft{grid-template-columns:1fr;gap:28px;padding-top:40px}}
+</style>
 </footer>
 <nav class="mbar" aria-label="Contact"><a href="tel:+18325019988"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a><a href="sms:+18325019988?&body=Hi%20Dump%20Hero%21%20I%27d%20like%20a%20quote.%20Here%27s%20a%20photo%20of%20what%20I%20need%20hauled%3A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a><a class="q" href="#top">Get a quote</a></nav>
 <script>
