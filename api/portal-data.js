@@ -9,6 +9,14 @@ const LISTING_FIELDS = ['src', 'id', 'title', 'agency', 'office', 'city', 'count
 const UPLOAD_FIELDS = ['src', 'id', 'title', 'desc', 'agency', 'office', 'posted', 'deadline', 'type', 'setaside', 'naics', 'naicsdesc', 'psc', 'nigp', 'city', 'county', 'state', 'zip', 'link', 'amount', 'contact', 'email', 'phone', 'active', 'place', 'level', 'popBlank'];
 const CONTACT_STATUSES = ['Not contacted', 'Contacted', 'Follow up', 'Partnered', 'Not interested'];
 const CONTACT_FIELDS = ['company', 'name', 'role', 'phone', 'email', 'website', 'city', 'source'];
+const BID_KEY = 'dh:bids';
+const BID_STATUSES = ['Reviewing', 'Bidding', 'Submitted', 'Won', 'Lost', 'Passed'];
+const BID_TEXT = { title: 300, agency: 200, solId: 100, location: 200, link: 500, scope: 1500, gc: 150, gcContact: 300, source: 80 };
+const BID_CHECKS = ['scope', 'crew', 'insurance', 'bonds', 'wages', 'distance', 'schedule', 'sitevisit', 'questions', 'price', 'submitted'];
+const BID_DOCS = ['w9', 'coi', 'vethub', 'vetcert', 'sam', 'capability', 'bidform', 'addenda', 'f1295', 'hsp', 'references', 'other'];
+const DOC_STATES = ['', 'Needed', 'Ready', 'N/A'];
+const PRICE_KEYS = ['workers', 'hours', 'rate', 'loads', 'dump', 'miles', 'cpm', 'other', 'contingency', 'margin'];
+function money(v) { if (v === '' || v == null) return null; const n = Number(v); if (!isFinite(n) || n < 0) throw new C.PortalError(400, 'Enter a number of 0 or more.'); return Math.min(n, 1e10); }
 async function hashAll(key) {
   const all = await C.redis(['HGETALL', key]) || []; const out = [];
   for (let i = 1; i < all.length; i += 2) { try { out.push(JSON.parse(all[i])); } catch (e) {} }
@@ -40,7 +48,8 @@ module.exports = C.handle(async (req, res) => {
     if (part === 'uploads') return C.send(res, 200, { ok: true, storage, sets: storage ? await hashAll('dh:uploads') : [] });
     const items = storage ? await hashAll(KEY) : [];
     const contacts = storage ? await hashAll('dh:contacts') : [];
-    return C.send(res, 200, { ok: true, storage, items, contacts, settings: await C.loadSettings(), users: C.userNames(), me: user.name });
+    const bids = storage ? await hashAll(BID_KEY) : [];
+    return C.send(res, 200, { ok: true, storage, items, contacts, bids, settings: await C.loadSettings(), users: C.userNames(), me: user.name });
   }
   C.requirePost(req);
   const body = await C.readBody(req);
@@ -141,6 +150,50 @@ module.exports = C.handle(async (req, res) => {
   }
   if (body.action === 'contact-delete') {
     await C.redis(['HDEL', 'dh:contacts', str(body.id, 40)]);
+    return C.send(res, 200, { ok: true });
+  }
+
+  if (body.action === 'bid-save') {
+    const f = body.fields || {};
+    let b = body.id ? await getJson(BID_KEY, str(body.id, 40)) : null;
+    if (body.id && !b) throw new C.PortalError(404, 'This bid was deleted.');
+    if (!b) {
+      if (!str(f.title, 300).trim()) throw new C.PortalError(400, 'Enter a bid or project name.');
+      const count = await C.redis(['HLEN', BID_KEY]);
+      if (count >= 1000) throw new C.PortalError(400, 'The tracker is full. Delete old bids first.');
+      b = { id: crypto.randomBytes(8).toString('hex'), status: 'Reviewing', role: 'Prime', assignee: user.name, checklist: {}, docs: {}, price: {}, dates: {}, notes: [], createdBy: user.name, createdAt: now, version: 0 };
+    }
+    Object.keys(BID_TEXT).forEach((k) => { if (k in f) b[k] = str(f[k], BID_TEXT[k]).trim(); });
+    if (!b.title) throw new C.PortalError(400, 'Enter a bid or project name.');
+    if ('link' in f && b.link && !/^https?:\/\//i.test(b.link)) b.link = 'https://' + b.link;
+    if ('est' in f) b.est = money(f.est);
+    if ('bidAmount' in f) b.bidAmount = money(f.bidAmount);
+    if (f.role != null) { if (!['Prime', 'Sub'].includes(f.role)) throw new C.PortalError(400, 'Invalid role.'); b.role = f.role; }
+    if (f.status != null) { if (!BID_STATUSES.includes(f.status)) throw new C.PortalError(400, 'Invalid status.'); b.status = f.status; }
+    if (f.assignee != null) { const names = C.userNames(); b.assignee = f.assignee === '' ? '' : (names.includes(f.assignee) ? f.assignee : b.assignee); }
+    if (f.dates && typeof f.dates === 'object') ['questions', 'site', 'due'].forEach((d) => { if (d in f.dates) b.dates[d] = cleanDate(f.dates[d]); });
+    if (f.checklist && typeof f.checklist === 'object') BID_CHECKS.forEach((c) => { if (c in f.checklist) b.checklist[c] = !!f.checklist[c]; });
+    if (f.docs && typeof f.docs === 'object') BID_DOCS.forEach((d) => { if (d in f.docs) { if (!DOC_STATES.includes(f.docs[d])) throw new C.PortalError(400, 'Invalid document status.'); b.docs[d] = f.docs[d]; } });
+    if (f.price && typeof f.price === 'object') PRICE_KEYS.forEach((k) => { if (k in f.price) { const v = money(f.price[k]); if (v == null) delete b.price[k]; else b.price[k] = v; } });
+    if (typeof f.note === 'string' && f.note.trim() && !(b.notes || []).length) b.notes = [{ by: user.name, at: now, text: str(f.note, 2000).trim() }];
+    b.updatedBy = user.name; b.updatedAt = now; b.version = (b.version || 0) + 1;
+    await C.redis(['HSET', BID_KEY, b.id, JSON.stringify(b)]);
+    return C.send(res, 200, { ok: true, bid: b });
+  }
+  if (body.action === 'bid-note') {
+    const text = str(body.text, 2000).trim();
+    if (!text) throw new C.PortalError(400, 'Write a note first.');
+    const b = await getJson(BID_KEY, str(body.id, 40));
+    if (!b) throw new C.PortalError(404, 'This bid was deleted.');
+    b.notes = (b.notes || []).concat([{ by: user.name, at: now, text }]).slice(-200);
+    b.updatedBy = user.name; b.updatedAt = now; b.version = (b.version || 0) + 1;
+    const json = JSON.stringify(b);
+    if (json.length > 100000) throw new C.PortalError(413, 'This bid has too many notes to save.');
+    await C.redis(['HSET', BID_KEY, b.id, json]);
+    return C.send(res, 200, { ok: true, bid: b });
+  }
+  if (body.action === 'bid-delete') {
+    await C.redis(['HDEL', BID_KEY, str(body.id, 40)]);
     return C.send(res, 200, { ok: true });
   }
 
